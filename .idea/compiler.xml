@@ -6,7 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="BookCityManagementSystem-parent" />
+        <module name="BookCity-Service" />
+        <module name="BookCity-Web" />
+        <module name="BookCity-Entity" />
+        <module name="BookCity-Dao" />
       </profile>
     </annotationProcessing>
   </component>
