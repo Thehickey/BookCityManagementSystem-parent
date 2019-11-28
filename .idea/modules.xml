@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BookCity-Dao/BookCity-Dao.iml" filepath="$PROJECT_DIR$/BookCity-Dao/BookCity-Dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BookCity-Entity/BookCity-Entity.iml" filepath="$PROJECT_DIR$/BookCity-Entity/BookCity-Entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BookCity-Service/BookCity-Service.iml" filepath="$PROJECT_DIR$/BookCity-Service/BookCity-Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BookCity-Web/BookCity-Web.iml" filepath="$PROJECT_DIR$/BookCity-Web/BookCity-Web.iml" />
+    </modules>
+  </component>
+</project>
