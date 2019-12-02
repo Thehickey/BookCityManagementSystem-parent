@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nf.bookCity.dao.BookDao">
+
+    <resultMap id="getBookMap" type="com.nf.bookCity.entity.Book">
+        <id property="bookId" column="book_id"/>
+        <result property="bookName" column="book_name"/>
+        <result property="bookCategoryId" column="book_category_id"/>
+        <result property="bookDescript" column="book_descript"/>
+        <result property="bookAuthor" column="book_author"/>
+        <result property="bookPress" column="book_press"/>
+        <result property="bookPicUrl" column="book_pic_url"/>
+        <result property="bookDate" column="book_date"/>
+        <result property="bookPrice" column="book_price"/>
+    </resultMap>
+
+    <select id="getBookPageAll" resultMap="getBookMap">
+        select  book_id,
+                book_name,
+                book_category_id,
+                book_descript,
+                book_author,
+                book_press,
+                book_pic_url,
+                book_date,
+                book_price
+        from book_info
+        order by book_id
+    </select>
+
+    <select id="getBookAll" resultMap="getBookMap">
+        select  book_id,
+                book_name,
+                book_category_id,
+                book_descript,
+                book_author,
+                book_press,
+                book_pic_url,
+                book_date,
+                book_price
+        from book_info
+    </select>
+
+    <select id="getBookById" resultMap="getBookMap">
+        select  book_id,
+                book_name,
+                book_category_id,
+                book_descript,
+                book_author,
+                book_press,
+                book_pic_url,
+                book_date,
+                book_price
+        from book_info
+        where book_id = #{bookId}
+    </select>
+
+    <insert id="insertBook">
+        insert into book_info(  book_name,
+                                book_category_id,
+                                book_descript,
+                                book_author,
+                                book_press,
+                                book_pic_url,
+                                book_date,
+                                book_price)
+        values (#{bookName},
+                #{bookCategoryId},
+                #{bookDescript},
+                #{bookAuthor},
+                #{bookPress},
+                #{bookPicUrl},
+                #{bookDate},
+                #{bookPrice})
+    </insert>
+
+    <delete id="deleteBookById">
+        delete from book_info where book_id = #{bookId}
+    </delete>
+
+    <update id="updateBook">
+        update book_info
+        set book_name = #{bookName},
+            book_category_id = #{bookCategoryId},
+            book_descript = #{bookDescript},
+            book_author = #{bookAuthor},
+            book_press = #{bookPress},
+            book_pic_url = #{bookPicUrl},
+            book_price = #{bookPrice}
+        where book_id = #{bookId}
+    </update>
+<!--    book_date = #{bookDate},-->
+
+    <select id="getBookCount" resultType="int">
+        select count(*) from book_info
+    </select>
+
+</mapper>

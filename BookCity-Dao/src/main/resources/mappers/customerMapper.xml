@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nf.bookCity.dao.CustomerDao">
+
+    <resultMap id="getCustomerMap" type="com.nf.bookCity.entity.Customer">
+        <id property="customerId" column="customer_id"/>
+        <result property="customerUsername" column="customer_username"/>
+        <result property="customerName" column="customer_name"/>
+        <result property="customerPassword" column="customer_password"/>
+        <result property="customerGender" column="customer_gender"/>
+        <result property="customerPhone" column="customer_phone"/>
+        <result property="customerIdcard" column="customer_idcard"/>
+        <result property="customerAdress" column="customer_adress"/>
+        <result property="customerEmail" column="customer_email"/>
+    </resultMap>
+
+    <select id="getCustomerPageAll" resultMap="getCustomerMap">
+        select customer_id,
+        customer_username,
+        customer_name,
+        customer_password,
+        customer_gender,
+        customer_phone,
+        customer_idcard,
+        customer_adress,
+        customer_email from customer_info
+        order by customer_id
+    </select>
+
+    <select id="getCustomerAll" resultMap="getCustomerMap">
+        select customer_id,
+        customer_username,
+        customer_name,
+        customer_password,
+        customer_gender,
+        customer_phone,
+        customer_idcard,
+        customer_adress,
+        customer_email from customer_info
+    </select>
+
+    <select id="getCustomerById" resultMap="getCustomerMap">
+        select  customer_id,
+                customer_username,
+                customer_name,
+                customer_password,
+                customer_gender,
+                customer_phone,
+                customer_idcard,
+                customer_adress,
+                customer_email
+        from customer_info
+        where customer_id = #{customerId}
+    </select>
+
+    <insert id="insertCustomer">
+        insert into
+        customer_info(  customer_username,
+                        customer_name,
+                        customer_password,
+                        customer_gender,
+                        customer_phone,
+                        customer_idcard,
+                        customer_adress,
+                        customer_email)
+        values (#{customerUsername},
+                #{customerName},
+                #{customerPassword},
+                #{customerGender},
+                #{customerPhone},
+                #{customerIdcard},
+                #{customerAdress},
+                #{customerEmail})
+    </insert>
+
+    <delete id="deleteCustomerById">
+        delete from customer_info where customer_id = #{customerId}
+    </delete>
+
+    <update id="updateCustomer">
+        update customer_info
+        set customer_username = #{customerUsername},
+            customer_name = #{customerName},
+            customer_password = #{customerPassword},
+            customer_gender = #{customerGender},
+            customer_phone = #{customerPhone},
+            customer_idcard = #{customerIdcard},
+            customer_adress = #{customerAdress},
+            customer_email = #{customerEmail}
+        where customer_id = #{customerId}
+    </update>
+
+    <select id="getCustomerCount" resultType="int">
+        select count(*) from customer_info
+    </select>
+
+</mapper>

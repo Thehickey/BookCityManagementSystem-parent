@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nf.bookCity.dao.AdminDao">
+
+    <resultMap id="getAdminMap" type="com.nf.bookCity.entity.Admin">
+        <id property="adminId" column="admin_id"/>
+        <result property="adminUsername" column="admin_username"/>
+        <result property="adminPassword" column="admin_password"/>
+        <result property="adminIdcard" column="admin_idcard"/>
+    </resultMap>
+
+    <select id="getAdminPageAll" resultMap="getAdminMap">
+        select  admin_id,
+                admin_username,
+                admin_password,
+                admin_idcard
+        from admin_info
+        order by admin_id
+    </select>
+
+    <select id="getAdminAll" resultMap="getAdminMap">
+        select  admin_id,
+                admin_username,
+                admin_password,
+                admin_idcard
+        from admin_info
+    </select>
+
+    <select id="getAdminById" resultMap="getAdminMap">
+        select  admin_id,
+                admin_username,
+                admin_password,
+                admin_idcard
+        from admin_info
+        where admin_id = #{adminId}
+    </select>
+
+    <insert id="insertAdmin">
+        insert into admin_info( admin_username,
+                                admin_password,
+                                admin_idcard)
+        values (#{adminUsername},
+                #{adminPassword},
+                #{adminIdcard})
+    </insert>
+
+    <delete id="deleteAdminById">
+        delete from admin_info where admin_id = #{adminId}
+    </delete>
+
+    <update id="updateAdmin">
+        update admin_info
+        set admin_username = #{adminUsername},
+            admin_password = #{adminPassword},
+            admin_idcard = #{adminIdcard}
+        where admin_id = #{adminId}
+    </update>
+
+    <select id="getAdminCount" resultType="int">
+        select count(*) from admin_info
+    </select>
+
+</mapper>
