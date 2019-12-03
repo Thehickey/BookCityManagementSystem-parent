@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.nf.bookCity.dao.AdminDao">
+<mapper namespace="com.nf.bookcity.dao.AdminDao">
 
-    <resultMap id="getAdminMap" type="com.nf.bookCity.entity.Admin">
+    <resultMap id="getAdminMap" type="com.nf.bookcity.entity.Admin">
         <id property="adminId" column="admin_id"/>
         <result property="adminUsername" column="admin_username"/>
         <result property="adminPassword" column="admin_password"/>

@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.nf.bookCity.dao.BookDao">
+<mapper namespace="com.nf.bookcity.dao.BookDao">
 
-    <resultMap id="getBookMap" type="com.nf.bookCity.entity.Book">
+    <resultMap id="getBookMap" type="com.nf.bookcity.entity.Book">
         <id property="bookId" column="book_id"/>
         <result property="bookName" column="book_name"/>
         <result property="bookCategoryId" column="book_category_id"/>

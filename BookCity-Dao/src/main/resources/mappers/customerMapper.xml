@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.nf.bookCity.dao.CustomerDao">
+<mapper namespace="com.nf.bookcity.dao.CustomerDao">
 
-    <resultMap id="getCustomerMap" type="com.nf.bookCity.entity.Customer">
+    <resultMap id="getCustomerMap" type="com.nf.bookcity.entity.Customer">
         <id property="customerId" column="customer_id"/>
         <result property="customerUsername" column="customer_username"/>
         <result property="customerName" column="customer_name"/>
@@ -53,6 +53,21 @@
                 customer_email
         from customer_info
         where customer_id = #{customerId}
+    </select>
+
+    <select id="loginVerification" resultMap="getCustomerMap">
+        select  customer_id,
+                customer_username,
+                customer_name,
+                customer_password,
+                customer_gender,
+                customer_phone,
+                customer_idcard,
+                customer_adress,
+                customer_email
+        from customer_info
+        where customer_username = #{customerUsername}
+        and customer_password = #{customerPassword}
     </select>
 
     <insert id="insertCustomer">
