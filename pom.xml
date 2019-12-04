@@ -12,7 +12,7 @@
         <module>BookCity-Entity</module>
         <module>BookCity-Service</module>
         <module>BookCity-Dao</module>
-        <module>BookCity-Web</module>
+        <module>bookcity-Web</module>
     </modules>
 
     <properties>

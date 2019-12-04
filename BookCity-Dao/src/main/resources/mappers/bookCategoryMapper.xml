@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nf.bookcity.dao.BookCategoryDao">
+
+    <resultMap id="getBookCategoryMap" type="com.nf.bookcity.entity.BookCategory">
+        <id property="categoryId" column="category_id"/>
+        <result property="categoryName" column="category_name"/>
+    </resultMap>
+
+    <select id="getBookCategoryAll" resultMap="getBookCategoryMap">
+        select category_id, category_name from book_category
+    </select>
+
+    <select id="getBookCategoryById" resultMap="getBookCategoryMap">
+        select category_id, category_name from book_category where category_id = #{categoryId}
+    </select>
+
+    <insert id="insertBookCategory">
+        insert into book_category(category_name) values (#{categoryName})
+    </insert>
+
+    <delete id="deleteBookCategoryById">
+        delete from book_category where category_id = #{categoryId}
+    </delete>
+
+    <update id="updateBookCategory">
+        update book_category
+        set category_name = #{categoryName}
+        where category_id = #{categoryId}
+    </update>
+
+</mapper>
