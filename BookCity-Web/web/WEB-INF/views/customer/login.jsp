@@ -175,7 +175,6 @@
 </div>
 <script src="/static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-
     function check_login() {
         var $jsonData = {};
         $.each($("#loginform").serializeArray(), function(i,e){
@@ -189,7 +188,7 @@
             contentType:"application/json;charset=utf-8",
             success:function (data) {
                 if (data.code == "200"){
-                    alert(data.message)
+                    window.location.href="/home?customerUsername=" + data.data.customerUsername + "&" + "customerPassword=" + data.data.customerPassword
                 }else {
                     defeat_prompt();
                 }

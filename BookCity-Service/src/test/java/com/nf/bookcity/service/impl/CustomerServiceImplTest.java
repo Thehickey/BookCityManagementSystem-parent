@@ -41,6 +41,12 @@ public class CustomerServiceImplTest {
     }
 
     @Test
+    public void loginVerification(){
+        Customer customer = new Customer("test2","123");
+        System.out.println(customerService.loginVerification(customer));
+    }
+
+    @Test
     public void insertCustomer() {
         Customer customer = new Customer();
         customer.setCustomerUsername("test4");

@@ -57,6 +57,20 @@
         where book_id = #{bookId}
     </select>
 
+    <select id="getBookByCategoryId" resultMap="getBookMap">
+        select  book_id,
+                book_name,
+                book_category_id,
+                book_descript,
+                book_author,
+                book_press,
+                book_pic_url,
+                book_date,
+                book_price
+        from book_info
+        where book_category_id = #{bookCategoryId}
+    </select>
+
     <insert id="insertBook">
         insert into book_info(  book_name,
                                 book_category_id,

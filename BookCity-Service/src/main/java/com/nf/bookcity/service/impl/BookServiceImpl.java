@@ -31,6 +31,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<Book> getBookByCategoryId(int bookCategoryId){
+        return bookDao.getBookByCategoryId(bookCategoryId);
+    }
+
+    @Override
     public boolean insertBook(Book book) {
         return bookDao.insertBook(book) > 0 ? true : false;
     }
