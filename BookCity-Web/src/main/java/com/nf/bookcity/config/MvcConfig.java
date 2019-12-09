@@ -1,5 +1,6 @@
 package com.nf.bookcity.config;
 
+import com.nf.bookcity.Interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -26,11 +27,11 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addFormatter(new DateFormatter("yyyy-MM-dd"));
     }
 
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        InterceptorRegistration interceptorRegistry =   registry.addInterceptor(new FirstInterceptor());
-//        interceptorRegistry.addPathPatterns("/**");
-//    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        InterceptorRegistration interceptorRegistry = registry.addInterceptor(new LoginInterceptor());
+        interceptorRegistry.addPathPatterns("/customer/index");
+    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

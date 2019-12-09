@@ -29,11 +29,18 @@ public class BookController {
         return "other/bookListByCategory";
     }
 
+    @GetMapping("/bookListByCategoryForHome")
+    @ResponseBody
+    public ResponseVO bookListByCategoryForHome(String categoryId){
+        List<Book> books = bookService.getBookByCategoryId(Integer.parseInt(categoryId));
+        return ResponseVO.newBuilder().code("200").message("查询成功").data(books).build();
+    }
+
     @GetMapping("/bookCategory")
-    public String bookCategory(Model model){
+    @ResponseBody
+    public ResponseVO bookCategory(){
         List<BookCategory> bookCategories = bookCategoryService.getBookCategoryAll();
-        model.addAttribute("bookCategoryList",bookCategories);
-        return "other/bookListByCategory";
+        return ResponseVO.newBuilder().code("200").message("图书类别添加成功").data(bookCategories).build();
     }
 
     @PostMapping("/bookCategory")

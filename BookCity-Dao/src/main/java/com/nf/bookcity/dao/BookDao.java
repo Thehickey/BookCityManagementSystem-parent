@@ -19,6 +19,9 @@ public interface BookDao {
     //根据类别ID查询书籍
     List<Book> getBookByCategoryId(int bookCategoryId);
 
+    //根据类别ID查询前六本书籍
+    List<Book> getBookByCategoryIdForSix(int bookCategoryId);
+
     //添加书籍
     int insertBook(Book book);
 

@@ -28,11 +28,11 @@ public class HomeController {
     @RequestMapping("/home")
     public String home(@RequestParam(required = false,value = "customerUsername",defaultValue = "null")String customerUsername,
                        @RequestParam(required = false,value = "customerPassword",defaultValue = "null")String customerPassword,
-                       Model model){
+                       Model model,HttpServletRequest httpServletRequest){
         List<BookCategory> bookCategories = bookCategoryService.getBookCategoryAll();
         if (customerUsername != null && customerPassword != null){
             Customer customer = new Customer(customerUsername,customerPassword);
-            model.addAttribute("Customer",customerService.loginVerification(customer));
+            httpServletRequest.getSession().setAttribute("Customer",customerService.loginVerification(customer));
         }
         model.addAttribute("bookCategoryList",bookCategories);
         return "home/home";

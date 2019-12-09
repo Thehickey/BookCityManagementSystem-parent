@@ -71,6 +71,21 @@
         where book_category_id = #{bookCategoryId}
     </select>
 
+    <select id="getBookByCategoryIdForSix" resultMap="getBookMap">
+        select  book_id,
+                book_name,
+                book_category_id,
+                book_descript,
+                book_author,
+                book_press,
+                book_pic_url,
+                book_date,
+                book_price
+        from book_info
+        where book_category_id = #{bookCategoryId} limit 0,6
+    </select>
+
+
     <insert id="insertBook">
         insert into book_info(  book_name,
                                 book_category_id,

@@ -41,4 +41,9 @@ public class CustomerController{
             return ResponseVO.newBuilder().code("500").message("注册失败").data(null).build();
         }
     }
+
+    @RequestMapping("/index")
+    public String index(){
+        return "customer/index";
+    }
 }

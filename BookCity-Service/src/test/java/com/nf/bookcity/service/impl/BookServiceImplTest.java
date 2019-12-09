@@ -43,7 +43,7 @@ public class BookServiceImplTest {
 
     @Test
     public void getBookByCategoryId(){
-        List<Book> books = bookService.getBookByCategoryId(1);
+        List<Book> books = bookService.getBookByCategoryId(3);
         for (Book book : books) {
             System.out.println(book);
         }
