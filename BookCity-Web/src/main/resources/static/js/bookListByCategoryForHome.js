@@ -1,14 +1,17 @@
 $(function () {
+    bookCategory_load();
+    win();
+})
+
+function bookCategory_load() {
     $.ajax({
         url:"/book/bookCategory",
         type:"GET",
         async:false,
         contentType:"application/json;charset=utf-8",
         success:function (result) {
-            var categoryId = "";
             $.each(result.data,function (index,element) {
                 var resultVal = "";
-                categoryId = element.categoryId;
                 resultVal += "<div data-id='"+element.categoryId+"' id='f"+element.categoryId+"'>";
                 resultVal += "<div class='am-container'>";
                 resultVal += "<div class='shopTitle'>";
@@ -21,11 +24,11 @@ $(function () {
                 resultVal += "</div>";
                 resultVal += "</div>";
                 $("#shopmain").append(resultVal);
-                bookList_load(categoryId);
+                bookList_load(element.categoryId);
             })
         }
     })
-})
+}
 
 function bookList_load(categoryId) {
     var resultVal = "";
@@ -46,10 +49,9 @@ function bookList_load(categoryId) {
             resultVal += "零食大礼包";
             resultVal += "</div>";
             resultVal += "</div>";
-            resultVal += "<img src=\"..//static/images/act1.png \" />";
+            resultVal += "<img src=\"/static/images/act1.png \" />";
             resultVal += "</a>";
             resultVal += "<div class=\"triangle-topright\"></div>";
-            resultVal += "</div>";
             resultVal += "</div>";
             $.each(result.data,function (index,element) {
                 if (index == 0){
@@ -63,7 +65,7 @@ function bookList_load(categoryId) {
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"..//static/images/2.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\"/static/images/2.jpg\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 1){
                     resultVal += "<div class=\"am-u-sm-7 am-u-md-4 text-two\">";
@@ -76,7 +78,7 @@ function bookList_load(categoryId) {
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"..//static/images/1.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\"/static/images/1.jpg\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 2){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three big\">";
@@ -89,7 +91,7 @@ function bookList_load(categoryId) {
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"..//static/images/5.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\"/static/images/5.jpg\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 3){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three sug\">";
@@ -102,7 +104,7 @@ function bookList_load(categoryId) {
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"..//static/images/3.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\"/static/images/3.jpg\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 4){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three \">";
@@ -115,7 +117,7 @@ function bookList_load(categoryId) {
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"..//static/images/4.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\"/static/images/4.jpg\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 5){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three last big \">";
@@ -128,11 +130,18 @@ function bookList_load(categoryId) {
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"..//static/images/5.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\"/static/images/5.jpg\" /></a>";
                     resultVal += "</div>";
                 }
             })
-            $("#shopmain").find("#f"+categoryId+"").append(resultVal);
+            resultVal += "</div>";
+            $("#f"+categoryId+"").append(resultVal);
         }
+    })
+}
+
+function win() {
+    $(".am-icon-shopping-basket am-icon-md  seprate").click(function () {
+        alter("NB")
     })
 }

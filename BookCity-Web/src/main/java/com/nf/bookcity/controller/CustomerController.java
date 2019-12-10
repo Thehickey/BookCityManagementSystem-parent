@@ -42,6 +42,11 @@ public class CustomerController{
         }
     }
 
+    @RequestMapping("/cart")
+    public String cart(){
+        return "customer/cart";
+    }
+
     @RequestMapping("/index")
     public String index(){
         return "customer/index";

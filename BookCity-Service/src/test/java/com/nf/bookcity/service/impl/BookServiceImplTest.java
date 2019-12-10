@@ -43,7 +43,7 @@ public class BookServiceImplTest {
 
     @Test
     public void getBookByCategoryId(){
-        List<Book> books = bookService.getBookByCategoryId(3);
+        List<Book> books = bookService.getBookByCategoryId(1);
         for (Book book : books) {
             System.out.println(book);
         }
@@ -52,7 +52,7 @@ public class BookServiceImplTest {
     @Test
     public void insertBook() {
         Book book = new Book
-                ("海底两万里",3,"一本好书","佚名","人民教育出版社","this is test",null,new BigDecimal(123.00));
+                ("校花的贴身高手4",3,"一本好书","佚名","人民教育出版社","this is test",null,new BigDecimal(123.00));
         bookService.insertBook(book);
     }
 

@@ -1,5 +1,6 @@
 package com.nf.bookcity.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -7,6 +8,7 @@ import java.util.Date;
 
 //购物车表
 @Data
+@AllArgsConstructor
 public class Cart {
 
     //购物车ID

@@ -40,7 +40,7 @@ public class BookController {
     @ResponseBody
     public ResponseVO bookCategory(){
         List<BookCategory> bookCategories = bookCategoryService.getBookCategoryAll();
-        return ResponseVO.newBuilder().code("200").message("图书类别添加成功").data(bookCategories).build();
+        return ResponseVO.newBuilder().code("200").message("图书类别查询成功").data(bookCategories).build();
     }
 
     @PostMapping("/bookCategory")
