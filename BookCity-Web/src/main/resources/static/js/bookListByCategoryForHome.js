@@ -63,7 +63,10 @@ function bookList_load(categoryId) {
                     resultVal += "<div class=\"sub-title \">";
                     resultVal += element.bookPrice;
                     resultVal += "</div>";
-                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
+                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
+                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "</span>";
+                    resultVal += "</i>";
                     resultVal += "</div>";
                     resultVal += "<a href=\"# \"><img src=\"/static/images/2.jpg\" /></a>";
                     resultVal += "</div>";
@@ -76,7 +79,10 @@ function bookList_load(categoryId) {
                     resultVal += "<div class=\"sub-title \">";
                     resultVal += element.bookPrice;
                     resultVal += "</div>";
-                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
+                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
+                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "</span>";
+                    resultVal += "</i>";
                     resultVal += "</div>";
                     resultVal += "<a href=\"# \"><img src=\"/static/images/1.jpg\" /></a>";
                     resultVal += "</div>";
@@ -89,7 +95,10 @@ function bookList_load(categoryId) {
                     resultVal += "<div class=\"sub-title \">";
                     resultVal += element.bookPrice;
                     resultVal += "</div>";
-                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
+                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
+                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "</span>";
+                    resultVal += "</i>";
                     resultVal += "</div>";
                     resultVal += "<a href=\"# \"><img src=\"/static/images/5.jpg\" /></a>";
                     resultVal += "</div>";
@@ -102,7 +111,10 @@ function bookList_load(categoryId) {
                     resultVal += "<div class=\"sub-title \">";
                     resultVal += element.bookPrice;
                     resultVal += "</div>";
-                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
+                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
+                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "</span>";
+                    resultVal += "</i>";
                     resultVal += "</div>";
                     resultVal += "<a href=\"# \"><img src=\"/static/images/3.jpg\" /></a>";
                     resultVal += "</div>";
@@ -115,7 +127,10 @@ function bookList_load(categoryId) {
                     resultVal += "<div class=\"sub-title \">";
                     resultVal += element.bookPrice;
                     resultVal += "</div>";
-                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
+                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
+                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "</span>";
+                    resultVal += "</i>";
                     resultVal += "</div>";
                     resultVal += "<a href=\"# \"><img src=\"/static/images/4.jpg\" /></a>";
                     resultVal += "</div>";
@@ -128,7 +143,10 @@ function bookList_load(categoryId) {
                     resultVal += "<div class=\"sub-title \">";
                     resultVal += element.bookPrice;
                     resultVal += "</div>";
-                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\"></i>";
+                    resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
+                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "</span>";
+                    resultVal += "</i>";
                     resultVal += "</div>";
                     resultVal += "<a href=\"# \"><img src=\"/static/images/5.jpg\" /></a>";
                     resultVal += "</div>";
@@ -141,7 +159,20 @@ function bookList_load(categoryId) {
 }
 
 function win() {
-    $(".am-icon-shopping-basket am-icon-md  seprate").click(function () {
-        alter("NB")
+    $(".seprate").click(function () {
+        var bookPrice = $(this).find("span").attr("data-bookPrice");
+        var bookName = $(this).find("span").attr("data-bookName");
+        $.ajax({
+            url:"/customer/insertCommodity?bookName=" + bookName +"&bookPrice=" + bookPrice,
+            type:"POST",
+            contentType:"application/json;charset=utf-8",
+            success:function (result) {
+                if (result.code == 200){
+                    alert(result.message)
+                }else{
+                    alert(result.message)
+                }
+            }
+        })
     })
 }

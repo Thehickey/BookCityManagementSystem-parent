@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nf.bookcity.dao.CartDao">
+
+    <resultMap id="getCartMap" type="com.nf.bookcity.entity.Cart">
+        <id property="cartId" column="cart_id"/>
+        <result property="cartCustomerId" column="cart_customer_id"/>
+        <result property="cartBookName" column="cart_book_name"/>
+        <result property="cartBookCnt" column="cart_book_cnt"/>
+        <result property="cartBookPrice" column="cart_book_price"/>
+        <result property="cartCreateTime" column="cart_create_time"/>
+        <result property="cartModifiedTime" column="cart_modified_time"/>
+    </resultMap>
+
+    <select id="getCartByCustomerId" resultMap="getCartMap">
+        select  cart_id,
+                cart_customer_id,
+                cart_book_name,
+                cart_book_cnt,
+                cart_book_price,
+                cart_create_time,
+                cart_modified_time
+        from cart
+        where cart_customer_id = #{customerId}
+    </select>
+
+    <insert id="insertCommodity">
+        insert into cart(   cart_customer_id,
+                            cart_book_name,
+                            cart_book_cnt,
+                            cart_book_price,
+                            cart_create_time,
+                            cart_modified_time)
+        values (#{cartCustomerId},
+                #{cartBookName},
+                #{cartBookCnt},
+                #{cartBookPrice},
+                #{cartCreateTime},
+                #{cartModifiedTime})
+    </insert>
+
+    <update id="addCommodityCnt">
+        update cart
+        set cart_book_cnt = #{param1} + cart_book_cnt
+        where cart_book_name = #{param2}
+    </update>
+
+    <update id="subCommodityCnt">
+        update cart
+        set cart_book_cnt = cart_book_cnt - #{param1}
+        where cart_book_name = #{param2}
+    </update>
+
+    <delete id="deleteCommodity">
+        delete from cart where cart_book_name = #{bookName}
+    </delete>
+
+</mapper>
