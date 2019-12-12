@@ -309,7 +309,7 @@
 
             </div>
             <div id="shopCart " class="item ">
-                <a href="# ">
+                <a href="/customer/cart">
                     <span class="message "></span>
                 </a>
                 <p>

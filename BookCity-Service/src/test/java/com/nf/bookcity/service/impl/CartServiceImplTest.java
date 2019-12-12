@@ -31,6 +31,12 @@ public class CartServiceImplTest {
     }
 
     @Test
+    public void getCartByCartId() {
+        Cart cart = cartService.getCartByCartId(3);
+        System.out.println(cart);
+    }
+
+    @Test
     public void insertCommodity() {
         Cart cart = new Cart(1,"校花的贴身高手3", 2, new BigDecimal(12.2), new Date(),new Date());
         cartService.insertCommodity(cart);

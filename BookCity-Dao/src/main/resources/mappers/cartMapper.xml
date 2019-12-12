@@ -26,6 +26,18 @@
         where cart_customer_id = #{customerId}
     </select>
 
+    <select id="getCartByCartId" resultMap="getCartMap">
+        select  cart_id,
+                cart_customer_id,
+                cart_book_name,
+                cart_book_cnt,
+                cart_book_price,
+                cart_create_time,
+                cart_modified_time
+        from cart
+        where cart_id = #{cartId}
+    </select>
+
     <insert id="insertCommodity">
         insert into cart(   cart_customer_id,
                             cart_book_name,

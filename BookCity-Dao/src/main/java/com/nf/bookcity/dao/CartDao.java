@@ -9,6 +9,9 @@ public interface CartDao {
     //根据用户ID查询购物车
     List<Cart> getCartByCustomerId(int customerId);
 
+    //根据购物车ID查询购物车
+    Cart getCartByCartId(int CartId);
+
     //添加商品
     int insertCommodity(Cart cart);
 

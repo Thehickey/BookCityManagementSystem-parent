@@ -20,6 +20,11 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    public Cart getCartByCartId(int cartId) {
+        return cartDao.getCartByCartId(cartId);
+    }
+
+    @Override
     public boolean insertCommodity(Cart cart) {
         return cartDao.insertCommodity(cart) > 0 ? true : false;
     }

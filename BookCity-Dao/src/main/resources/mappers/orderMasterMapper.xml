@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nf.bookcity.dao.OrderMasterDao">
+    
+    <resultMap id="getOrderMasterMap" type="com.nf.bookcity.entity.OrderMaster">
+        <id property="orderId" column="order_id"/>
+    </resultMap>
+
+    <insert id="insertOrder">
+        insert into order_master(order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time)
+        values (#{orderSn},
+                #{orderCustomerId},
+                #{orderCustomerName},
+                #{orderCustomerPhone},
+                #{orderCustomerAddress},
+                #{orderMoney},
+                #{orderPaymentMoney},
+                #{orderCreateTime},
+                #{orderStatus},
+                #{orderModifiedTime})
+    </insert>
+
+</mapper>

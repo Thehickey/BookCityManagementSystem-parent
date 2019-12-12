@@ -41,65 +41,6 @@
 
 <!--购物车 -->
 <div class="concent">
-    <div id="cartTable">
-
-    </div>
-    <div class="clear"></div>
-
-    <div class="float-bar-wrapper">
-        <div id="J_SelectAll2" class="select-all J_SelectAll">
-            <div class="cart-checkbox">
-                <input class="check-all check" id="J_SelectAllCbx2" name="select-all" value="true" type="checkbox">
-                <label for="J_SelectAllCbx2"></label>
-            </div>
-            <span>全选</span>
-        </div>
-        <div class="operations">
-            <a href="#" hidefocus="true" class="deleteAll">删除</a>
-        </div>
-        <div class="float-bar-right">
-            <div class="amount-sum">
-                <span class="txt">已选商品</span>
-                <em id="J_SelectedItemsCount">0</em><span class="txt">件</span>
-                <div class="arrow-box">
-                    <span class="selected-items-arrow"></span>
-                    <span class="arrow"></span>
-                </div>
-            </div>
-            <div class="price-sum">
-                <span class="txt">合计:</span>
-                <strong class="price">¥<em id="J_Total">0.00</em></strong>
-            </div>
-            <div class="btn-area">
-                <a href="pay.html" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
-                    <span>结&nbsp;算</span></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="footer-hd">
-            <p>
-                <a href="#">恒望科技</a>
-                <b>|</b>
-                <a href="#">商城首页</a>
-                <b>|</b>
-                <a href="#">支付宝</a>
-                <b>|</b>
-                <a href="#">物流</a>
-            </p>
-        </div>
-        <div class="footer-bd">
-            <p>
-                <a href="#">关于恒望</a>
-                <a href="#">合作伙伴</a>
-                <a href="#">联系我们</a>
-                <a href="#">网站地图</a>
-                <em>© 2016-2026 XXXX 版权所有 <a href="http://www.cssmoban.com/" target="_blank" title="版权所有">版权所有</a> - Collect from</em>
-            </p>
-        </div>
-    </div>
-
 </div>
 
 <!--操作页面-->

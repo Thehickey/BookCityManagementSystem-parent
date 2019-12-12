@@ -7,10 +7,13 @@ import com.nf.bookcity.service.CustomerService;
 import com.nf.bookcity.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,11 +27,13 @@ public class CustomerController{
     @Autowired
     private CartService cartService;
 
+    //登录页面
     @GetMapping("/login")
     public String login(){
         return "customer/login";
     }
 
+    //登录
     @PostMapping("/login")
     @ResponseBody
     public ResponseVO login(@RequestBody Customer customer){
@@ -41,6 +46,7 @@ public class CustomerController{
         return ResponseVO.newBuilder().code("500").message("登录失败").data(null).build();
     }
 
+    //注册
     @PostMapping("/register")
     @ResponseBody
     public ResponseVO register(@RequestBody Customer customer){
@@ -52,11 +58,21 @@ public class CustomerController{
         }
     }
 
+    //个人主页
+    @RequestMapping("/index")
+    public String index(){
+        return "customer/index";
+    }
+
+    //购物车页面
     @RequestMapping("/cart")
-    public String cart(){
+    public String cart(HttpServletRequest httpServletRequest){
+        HttpSession session = httpServletRequest.getSession();
+        session.removeAttribute("confirmCart");
         return "customer/cart";
     }
 
+    //查询购物车内容
     @GetMapping("/cartList")
     public String cartList(HttpServletRequest httpServletRequest){
         Customer customer = (Customer) httpServletRequest.getSession().getAttribute("Customer");
@@ -65,6 +81,7 @@ public class CustomerController{
         return "other/cartList";
     }
 
+    //添加商品
     @PostMapping("/insertCommodity")
     @ResponseBody
     public ResponseVO insertCommodity(String bookName, String bookPrice,
@@ -79,6 +96,7 @@ public class CustomerController{
         }
     }
 
+    //添加商品数量
     @PostMapping("/addCommodity")
     @ResponseBody
     public ResponseVO addCommodity(String bookName){
@@ -90,6 +108,7 @@ public class CustomerController{
         }
     }
 
+    //减少商品数量
     @PostMapping("/subCommodity")
     @ResponseBody
     public ResponseVO subCommodity(String bookName){
@@ -101,6 +120,7 @@ public class CustomerController{
         }
     }
 
+    //删除商品
     @PostMapping("/deleteCommodity")
     @ResponseBody
     public ResponseVO deleteCommodity(String bookName){
@@ -112,8 +132,39 @@ public class CustomerController{
         }
     }
 
-    @RequestMapping("/index")
-    public String index(){
-        return "customer/index";
+    //支付页面
+    @GetMapping("/pay")
+    public String pay(@RequestParam(value = "total",required = false)String total, Model model){
+        model.addAttribute("total",Integer.parseInt(total));
+        return "customer/pay";
     }
+
+    //确认支付商品
+    @PostMapping("/confirmCommodity")
+    @ResponseBody
+    public ResponseVO confirmCommodity(int cartId,HttpServletRequest httpServletRequest){
+        HttpSession session = httpServletRequest.getSession();
+        Cart cart = cartService.getCartByCartId(cartId);
+        if (cart != null){
+            if (session.getAttribute("confirmCart") == null){
+                List<Cart> carts = new ArrayList<>();
+                carts.add(cart);
+                httpServletRequest.getSession().setAttribute("confirmCart",carts);
+            }else {
+                List<Cart> carts = (List<Cart>) session.getAttribute("confirmCart");
+                carts.add(cart);
+                httpServletRequest.getSession().setAttribute("confirmCart",carts);
+            }
+            return ResponseVO.newBuilder().code("200").message("添加成功").data(cart).build();
+        }else{
+            return ResponseVO.newBuilder().code("500").message("添加成功").data(null).build();
+        }
+    }
+
+    //获取支付商品内容
+    @GetMapping("/payList")
+    public String payList(){
+        return "other/payList";
+    }
+
 }
