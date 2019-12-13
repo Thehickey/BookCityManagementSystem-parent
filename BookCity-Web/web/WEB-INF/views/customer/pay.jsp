@@ -17,6 +17,7 @@
     <link href="/static/css/cartstyle.css" rel="stylesheet" type="text/css" />
 
     <link href="/static/css/jsstyle.css" rel="stylesheet" type="text/css" />
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
 
     <script type="text/javascript" src="/static/js/address.js"></script>
 
@@ -147,7 +148,7 @@
 
                 <div id="holyshit269" class="submitOrder">
                     <div class="go-btn-wrap">
-                        <a id="J_Go" href="success.html" class="btn-go" tabindex="0" title="点击此按钮，提交订单">提交订单</a>
+                        <a id="J_Go" href="/customer/success?total=${total}" class="btn-go" tabindex="0" title="点击此按钮，提交订单">提交订单</a>
                     </div>
                 </div>
                 <div id="holyshit2691" class="submitOrder">

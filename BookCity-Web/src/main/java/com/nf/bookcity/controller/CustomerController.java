@@ -2,8 +2,13 @@ package com.nf.bookcity.controller;
 
 import com.nf.bookcity.entity.Cart;
 import com.nf.bookcity.entity.Customer;
+import com.nf.bookcity.entity.OrderDetail;
+import com.nf.bookcity.entity.OrderMaster;
 import com.nf.bookcity.service.CartService;
 import com.nf.bookcity.service.CustomerService;
+import com.nf.bookcity.service.OrderDetailService;
+import com.nf.bookcity.service.OrderMasterService;
+import com.nf.bookcity.util.OrderUtil;
 import com.nf.bookcity.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +31,12 @@ public class CustomerController{
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private OrderMasterService orderMasterService;
+
+    @Autowired
+    private OrderDetailService orderDetailService;
 
     //登录页面
     @GetMapping("/login")
@@ -165,6 +176,29 @@ public class CustomerController{
     @GetMapping("/payList")
     public String payList(){
         return "other/payList";
+    }
+
+    //付款成功
+    @RequestMapping("/success")
+    public String success(@RequestParam(value = "total",required = false)String total,
+                          HttpServletRequest httpServletRequest){
+        String orderSn = OrderUtil.getOrderId();
+        httpServletRequest.setAttribute("total",Integer.parseInt(total));
+        HttpSession session = httpServletRequest.getSession();
+        Customer customer = (Customer) session.getAttribute("Customer");
+        OrderMaster insertorderMaster = new OrderMaster(orderSn,customer.getCustomerId(),customer.getCustomerUsername(),customer.getCustomerPhone(),customer.getCustomerAdress(),new BigDecimal(total),new BigDecimal(total),new Date(),1,new Date());
+        boolean bool = orderMasterService.insertOrder(insertorderMaster);
+        if (bool == true){
+            OrderMaster orderMaster = orderMasterService.getOrderMasterByOrderSn(orderSn);
+            List<Cart> carts = (List<Cart>) session.getAttribute("confirmCart");
+            for (Cart cart : carts) {
+                double detailTotail = cart.getCartBookCnt()*Double.valueOf((cart.getCartBookPrice()).toString());
+                OrderDetail orderDetail = new OrderDetail(orderMaster.getOrderId(),cart.getCartBookName(),cart.getCartBookCnt(),cart.getCartBookPrice(),new BigDecimal(detailTotail));
+                orderDetailService.insertOrderDetail(orderDetail);//生成订单
+                cartService.deleteCommodity(cart.getCartBookName());//从购物车中移除
+            }
+        }
+        return "customer/success";
     }
 
 }

@@ -11,6 +11,18 @@ import java.util.Date;
 @AllArgsConstructor
 public class Cart {
 
+    public Cart() {
+    }
+
+    public Cart(Integer cartCustomerId, String cartBookName, Integer cartBookCnt, BigDecimal cartBookPrice, Date cartCreateTime, Date cartModifiedTime) {
+        this.cartCustomerId = cartCustomerId;
+        this.cartBookName = cartBookName;
+        this.cartBookCnt = cartBookCnt;
+        this.cartBookPrice = cartBookPrice;
+        this.cartCreateTime = cartCreateTime;
+        this.cartModifiedTime = cartModifiedTime;
+    }
+
     //购物车ID
     private Integer cartId;
 
@@ -32,12 +44,4 @@ public class Cart {
     //最后修改时间
     private Date cartModifiedTime;
 
-    public Cart(Integer cartCustomerId, String cartBookName, Integer cartBookCnt, BigDecimal cartBookPrice, Date cartCreateTime, Date cartModifiedTime) {
-        this.cartCustomerId = cartCustomerId;
-        this.cartBookName = cartBookName;
-        this.cartBookCnt = cartBookCnt;
-        this.cartBookPrice = cartBookPrice;
-        this.cartCreateTime = cartCreateTime;
-        this.cartModifiedTime = cartModifiedTime;
-    }
 }

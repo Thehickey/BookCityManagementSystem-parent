@@ -31,7 +31,7 @@
                 <div class="menu-hd MyShangcheng"><a href="/customer/index" target="_top">个人中心</a></div>
             </div>
             <div class="topMessage mini-cart">
-                <div class="menu-hd"><a id="mc-menu-hd" href="/home" target="_top"><span>书城首页</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
+                <div class="menu-hd"><a id="mc-menu-hd" href="/home?customerUsername=${sessionScope.Customer.customerUsername}&customerPassword=${sessionScope.Customer.customerPassword}" target="_top"><span>书城首页</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
             </div>
         </ul>
     </div>

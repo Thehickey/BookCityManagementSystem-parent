@@ -1,5 +1,6 @@
 package com.nf.bookcity.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -7,7 +8,24 @@ import java.util.Date;
 
 //订单信息表
 @Data
+@AllArgsConstructor
 public class OrderMaster {
+
+    public OrderMaster() {
+    }
+
+    public OrderMaster(String orderSn, Integer orderCustomerId, String orderCustomerName, String orderCustomerPhone, String orderCustomerAddress, BigDecimal orderMoney, BigDecimal orderPaymentMoney, Date orderCreateTime, Integer orderStatus, Date orderModifiedTime) {
+        this.orderSn = orderSn;
+        this.orderCustomerId = orderCustomerId;
+        this.orderCustomerName = orderCustomerName;
+        this.orderCustomerPhone = orderCustomerPhone;
+        this.orderCustomerAddress = orderCustomerAddress;
+        this.orderMoney = orderMoney;
+        this.orderPaymentMoney = orderPaymentMoney;
+        this.orderCreateTime = orderCreateTime;
+        this.orderStatus = orderStatus;
+        this.orderModifiedTime = orderModifiedTime;
+    }
 
     //订单ID
     private Integer orderId;

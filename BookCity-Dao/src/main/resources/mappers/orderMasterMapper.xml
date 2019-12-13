@@ -6,10 +6,45 @@
     
     <resultMap id="getOrderMasterMap" type="com.nf.bookcity.entity.OrderMaster">
         <id property="orderId" column="order_id"/>
+        <result property="orderSn" column="order_sn"/>
+        <result property="orderCustomerId" column="order_customer_id"/>
+        <result property="orderCustomerName" column="order_customer_name"/>
+        <result property="orderCustomerPhone" column="order_customer_phone"/>
+        <result property="orderCustomerAddress" column="order_customer_address"/>
+        <result property="orderMoney" column="order_money"/>
+        <result property="orderPaymentMoney" column="order_payment_money"/>
+        <result property="orderCreateTime" column="order_create_time"/>
+        <result property="orderStatus" column="order_status"/>
+        <result property="orderModifiedTime" column="order_modified_time"/>
     </resultMap>
 
+    <select id="getOrderMasterByOrderSn" resultMap="getOrderMasterMap">
+        select  order_id,
+                order_sn,
+                order_customer_id,
+                order_customer_name,
+                order_customer_phone,
+                order_customer_address,
+                order_money,
+                order_payment_money,
+                order_create_time,
+                order_status,
+                order_modified_time
+        from order_master
+        where order_sn = #{orderSn}
+    </select>
+
     <insert id="insertOrder">
-        insert into order_master(order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time)
+        insert into order_master(   order_sn,
+                                    order_customer_id,
+                                    order_customer_name,
+                                    order_customer_phone,
+                                    order_customer_address,
+                                    order_money,
+                                    order_payment_money,
+                                    order_create_time,
+                                    order_status,
+                                    order_modified_time)
         values (#{orderSn},
                 #{orderCustomerId},
                 #{orderCustomerName},

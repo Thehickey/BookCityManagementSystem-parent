@@ -1,13 +1,13 @@
-package com.nf.bookcity.dao;
+package com.nf.bookcity.service;
 
 import com.nf.bookcity.entity.OrderMaster;
 
-public interface OrderMasterDao {
+public interface OrderMasterService {
 
     //根据订单编号获取订单
     OrderMaster getOrderMasterByOrderSn(String orderSn);
 
     //添加订单
-    int insertOrder(OrderMaster orderMaster);
+    boolean insertOrder(OrderMaster orderMaster);
 
 }
