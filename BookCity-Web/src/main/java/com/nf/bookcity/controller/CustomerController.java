@@ -75,6 +75,16 @@ public class CustomerController{
         return "customer/index";
     }
 
+    //订单管理
+    @RequestMapping("/order")
+    public String order(HttpServletRequest httpServletRequest){
+        HttpSession session = httpServletRequest.getSession();
+        Customer customer = (Customer) session.getAttribute("Customer");
+        List<OrderMaster> orderMasters = orderMasterService.getOrderMasterByCustomerId(customer.getCustomerId());
+        httpServletRequest.setAttribute("orderByCustomer",orderMasters);
+        return "customer/order";
+    }
+
     //购物车页面
     @RequestMapping("/cart")
     public String cart(HttpServletRequest httpServletRequest){

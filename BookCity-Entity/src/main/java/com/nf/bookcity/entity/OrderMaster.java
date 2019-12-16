@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 //订单信息表
 @Data
@@ -59,5 +60,8 @@ public class OrderMaster {
 
     //最后修改时间
     private Date orderModifiedTime;
+
+    //订单明细(数据库中无此字段)
+    List<OrderDetail> orderDetailList;
 
 }
