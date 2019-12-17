@@ -16,8 +16,13 @@ public class BookServiceImpl implements BookService {
     private BookDao bookDao;
 
     @Override
-    public List<Book> getBookPageAll(@Param("pageNum")int pageNum, @Param("pageSize")int pageSize) {
+    public List<Book> getBookPageAll(int pageNum,int pageSize) {
         return bookDao.getBookPageAll(pageNum, pageSize);
+    }
+
+    @Override
+    public List<Book> getBookPageByCategoryId(int bookCategoryId,int pageNum,int pageSize){
+        return bookDao.getBookPageByCategoryId(bookCategoryId,pageNum,pageSize);
     }
 
     @Override
@@ -33,11 +38,6 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> getBookByCategoryId(int bookCategoryId){
         return bookDao.getBookByCategoryId(bookCategoryId);
-    }
-
-    @Override
-    public List<Book> getBookByCategoryIdForSix(int bookCategoryId){
-        return bookDao.getBookByCategoryIdForSix(bookCategoryId);
     }
 
     @Override

@@ -11,17 +11,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
-
     <title>我的订单管理</title>
-
     <link href="/static/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.bootcss.com/amazeui/2.5.1/css/amazeui.css" rel="stylesheet" type="text/css" />
     <link href="/static/css/personal.css" rel="stylesheet" type="text/css">
     <link href="/static/css/orstyle.css" rel="stylesheet" type="text/css">
-
     <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script src="/static/amazeui/2.5.1/js/amazeui.min.js"></script>
-
 </head>
 
 <body>
@@ -33,7 +29,7 @@
             <div class="am-container header">
                 <ul class="message-r">
                     <div class="topMessage home">
-                        <div class="menu-hd"><a href="/home" target="_top" class="h">书城首页</a></div>
+                        <div class="menu-hd"><a href="/home?customerUsername=${sessionScope.Customer.customerUsername}&customerPassword=${sessionScope.Customer.customerPassword}" target="_top" class="h">书城首页</a></div>
                     </div>
                     <div class="topMessage mini-cart">
                         <div class="menu-hd"><a id="mc-menu-hd" href="/customer/cart" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
@@ -48,7 +44,7 @@
     <div class="long-title"><span class="all-goods">全部分类</span></div>
     <div class="nav-cont">
         <ul>
-            <li class="index"><a href="#">首页</a></li>
+            <li class="index"><a href="/customer/index">首页</a></li>
         </ul>
     </div>
 </div>

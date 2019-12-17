@@ -28,13 +28,11 @@
         <div class="am-container header">
             <ul class="message-l">
                 <div class="topMessage">
-                    <a href="javascript:;">送货至：<span>山东</span><img src="/static/images/jt_t.png"></a>
-                </div>
-                <div class="topMessage">
                     <div class="menu-hd">
                         <c:choose>
                             <c:when test="${sessionScope.Customer != null}">
                                 <span>欢迎您，${sessionScope.Customer.customerUsername}</span>
+                                <a href="/customer/cancellation">注销</a>
                             </c:when>
                             <c:otherwise>
                                 <a href="/customer/login" target="_top" class="h">亲，请登录</a>

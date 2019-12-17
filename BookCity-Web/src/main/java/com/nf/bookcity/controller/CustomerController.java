@@ -69,6 +69,14 @@ public class CustomerController{
         }
     }
 
+    //注销
+    @RequestMapping("/cancellation")
+    public String cancellation(HttpServletRequest httpServletRequest){
+        HttpSession session = httpServletRequest.getSession();
+        session.removeAttribute("Customer");
+        return "redirect:/home";
+    }
+
     //个人主页
     @RequestMapping("/index")
     public String index(){

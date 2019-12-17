@@ -28,6 +28,14 @@ public class BookServiceImplTest {
     }
 
     @Test
+    public void getBookPageByCategoryId() {
+        List<Book> books = bookService.getBookPageByCategoryId(1,1,2);
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+
+    @Test
     public void getBookAll() {
         List<Book> books = bookService.getBookAll();
         for (Book book : books) {
@@ -52,7 +60,7 @@ public class BookServiceImplTest {
     @Test
     public void insertBook() {
         Book book = new Book
-                ("校花的贴身高手4",3,"一本好书","佚名","人民教育出版社","this is test",null,new BigDecimal(123.00));
+                ("校花的贴身高手4",1,"一本好书","佚名","人民教育出版社","this is test",null,new BigDecimal(123.00));
         bookService.insertBook(book);
     }
 

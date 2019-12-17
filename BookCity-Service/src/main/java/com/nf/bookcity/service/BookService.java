@@ -8,7 +8,10 @@ import java.util.List;
 public interface BookService {
 
     //分页查询所有书籍
-    List<Book> getBookPageAll(@Param("pageNum")int pageNum, @Param("pageSize")int pageSize);
+    List<Book> getBookPageAll(int pageNum,int pageSize);
+
+    //根据类别ID分页查询书籍
+    List<Book> getBookPageByCategoryId(int bookCategoryId,int pageNum,int pageSize);
 
     //查询所有书籍
     List<Book> getBookAll();
@@ -18,9 +21,6 @@ public interface BookService {
 
     //根据类别ID查询书籍
     List<Book> getBookByCategoryId(int bookCategoryId);
-
-    //根据类别ID查询前六本书籍
-    List<Book> getBookByCategoryIdForSix(int bookCategoryId);
 
     //添加书籍
     boolean insertBook(Book book);

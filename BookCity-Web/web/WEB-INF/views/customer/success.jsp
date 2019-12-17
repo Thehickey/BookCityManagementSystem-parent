@@ -14,7 +14,6 @@
     <link rel="stylesheet"  type="text/css" href="/static/AmazeUI-2.4.2/assets/css/amazeui.css"/>
     <link href="/static/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
     <link href="/static/basic/css/demo.css" rel="stylesheet" type="text/css" />
-
     <link href="/static/css/sustyle.css" rel="stylesheet" type="text/css" />
     <script src="/static/js/jquery-3.3.1.min.js"></script>
 

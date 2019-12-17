@@ -1,5 +1,6 @@
 package com.nf.bookcity.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -53,6 +54,7 @@ public class OrderMaster {
     private BigDecimal orderPaymentMoney;
 
     //下单时间
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date orderCreateTime;
 
     //订单状态

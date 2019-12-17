@@ -1,5 +1,6 @@
 package com.nf.bookcity.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.nf.bookcity.entity.Book;
 import com.nf.bookcity.entity.BookCategory;
 import com.nf.bookcity.service.BookCategoryService;
@@ -31,9 +32,10 @@ public class BookController {
 
     @GetMapping("/bookListByCategoryForHome")
     @ResponseBody
-    public ResponseVO bookListByCategoryForHome(String categoryId){
-        List<Book> books = bookService.getBookByCategoryId(Integer.parseInt(categoryId));
-        return ResponseVO.newBuilder().code("200").message("查询成功").data(books).build();
+    public ResponseVO bookListByCategoryForHome(String categoryId,String pageNum){
+        List<Book> books = bookService.getBookPageByCategoryId(Integer.parseInt(categoryId),Integer.parseInt(pageNum),6);
+        PageInfo<Book> pageInfo = new PageInfo<>(books,5);
+        return ResponseVO.newBuilder().code("200").message("查询成功").data(pageInfo).build();
     }
 
     @GetMapping("/bookCategory")
