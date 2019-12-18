@@ -48,4 +48,10 @@ public class AdminServiceImpl implements AdminService {
     public int getAdminCount() {
         return adminDao.getAdminCount();
     }
+
+    @Override
+    public Admin loginVerification(Admin admin) {
+        return adminDao.loginVerification(admin);
+    }
+
 }

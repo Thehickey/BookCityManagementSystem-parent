@@ -11,6 +11,11 @@ public class Admin {
     public Admin() {
     }
 
+    public Admin(String adminUsername, String adminPassword) {
+        this.adminUsername = adminUsername;
+        this.adminPassword = adminPassword;
+    }
+
     public Admin(String adminUsername, String adminPassword, String adminIdcard) {
         this.adminUsername = adminUsername;
         this.adminPassword = adminPassword;

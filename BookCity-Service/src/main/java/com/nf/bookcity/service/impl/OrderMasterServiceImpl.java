@@ -15,6 +15,11 @@ public class OrderMasterServiceImpl implements OrderMasterService {
     private OrderMasterDao orderMasterDao;
 
     @Override
+    public List<OrderMaster> getOrderMasterPageAll(int pageNum, int pageSize) {
+        return orderMasterDao.getOrderMasterPageAll(pageNum, pageSize);
+    }
+
+    @Override
     public List<OrderMaster> getOrderMasterAll() {
         return orderMasterDao.getOrderMasterAll();
     }
@@ -37,6 +42,11 @@ public class OrderMasterServiceImpl implements OrderMasterService {
     @Override
     public boolean insertOrder(OrderMaster orderMaster) {
         return orderMasterDao.insertOrder(orderMaster) > 0 ? true : false;
+    }
+
+    @Override
+    public boolean updateOrderStatusByOrderId(int orderId, int orderStatus) {
+        return orderMasterDao.updateOrderStatusByOrderId(orderId,orderStatus) > 0 ? true : false;
     }
 
 }

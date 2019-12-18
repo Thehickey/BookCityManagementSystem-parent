@@ -28,4 +28,7 @@ public interface AdminDao {
     //查询管理员数量
     int getAdminCount();
 
+    //登录验证
+    Admin loginVerification(Admin admin);
+
 }

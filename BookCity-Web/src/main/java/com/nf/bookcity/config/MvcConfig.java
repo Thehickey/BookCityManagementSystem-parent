@@ -1,6 +1,7 @@
 package com.nf.bookcity.config;
 
-import com.nf.bookcity.Interceptor.LoginInterceptor;
+import com.nf.bookcity.Interceptor.AdminLoginInterceptor;
+import com.nf.bookcity.Interceptor.CustomerLoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -29,9 +30,8 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        InterceptorRegistration interceptorRegistry = registry.addInterceptor(new LoginInterceptor());
-        interceptorRegistry.addPathPatterns("/customer/index");
-        interceptorRegistry.addPathPatterns("/customer/cart");
+        registry.addInterceptor(new CustomerLoginInterceptor()).addPathPatterns("/customer/index","/customer/cart");
+        registry.addInterceptor(new AdminLoginInterceptor()).addPathPatterns("/admin/index");
     }
 
     @Override

@@ -1,10 +1,14 @@
 package com.nf.bookcity.dao;
 
 import com.nf.bookcity.entity.OrderMaster;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface OrderMasterDao {
+
+    //分页获取所有订单
+    List<OrderMaster> getOrderMasterPageAll(@Param("pageNum")int pageNum, @Param("pageSize")int pageSize);
 
     //获取所有订单
     List<OrderMaster> getOrderMasterAll();
@@ -20,5 +24,8 @@ public interface OrderMasterDao {
 
     //添加订单
     int insertOrder(OrderMaster orderMaster);
+
+    //根据订单id修改订单状态
+    int updateOrderStatusByOrderId(int orderId,int orderStatus);
 
 }

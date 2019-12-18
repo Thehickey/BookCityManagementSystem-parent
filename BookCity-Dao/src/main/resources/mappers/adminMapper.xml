@@ -37,6 +37,16 @@
         where admin_id = #{adminId}
     </select>
 
+    <select id="loginVerification" resultMap="getAdminMap">
+        select  admin_id,
+                admin_username,
+                admin_password,
+                admin_idcard
+        from admin_info
+        where admin_username = #{adminUsername}
+        and admin_password = #{adminPassword}
+    </select>
+
     <insert id="insertAdmin">
         insert into admin_info( admin_username,
                                 admin_password,

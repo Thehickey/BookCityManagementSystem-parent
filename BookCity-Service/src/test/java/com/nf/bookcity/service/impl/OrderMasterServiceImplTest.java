@@ -22,6 +22,15 @@ public class OrderMasterServiceImplTest {
     private OrderMasterService orderMasterService;
 
     @Test
+    public void getOrderMasterPageAll(){
+        List<OrderMaster> orderMasters = orderMasterService.getOrderMasterPageAll(1,2);
+        for (OrderMaster orderMaster : orderMasters) {
+            System.out.println(orderMaster);
+        }
+    }
+
+
+    @Test
     public void getOrderMasterAll(){
         List<OrderMaster> orderMasters = orderMasterService.getOrderMasterAll();
         System.out.println(orderMasters);
@@ -50,4 +59,10 @@ public class OrderMasterServiceImplTest {
     @Test
     public void insertOrder() {
     }
+
+    @Test
+    public void updateOrderStatusByOrderId() {
+        orderMasterService.updateOrderStatusByOrderId(1,2);
+    }
+
 }

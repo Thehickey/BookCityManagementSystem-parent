@@ -48,9 +48,7 @@ public class CustomerController{
     @PostMapping("/login")
     @ResponseBody
     public ResponseVO login(@RequestBody Customer customer){
-        System.out.println("customer = " + customer);
         Customer customer1 = customerService.loginVerification(customer);
-        System.out.println("customer1 = " + customer1);
         if (customer1 != null){
             return ResponseVO.newBuilder().code("200").message("登录成功").data(customer1).build();
         }
@@ -91,6 +89,18 @@ public class CustomerController{
         List<OrderMaster> orderMasters = orderMasterService.getOrderMasterByCustomerId(customer.getCustomerId());
         httpServletRequest.setAttribute("orderByCustomer",orderMasters);
         return "customer/order";
+    }
+
+    //确认收货
+    @RequestMapping("/takegoods")
+    @ResponseBody
+    public ResponseVO takegoods(@RequestParam(required = false,value = "orderId")String orderId){
+        boolean bool = orderMasterService.updateOrderStatusByOrderId(Integer.parseInt(orderId),3);
+        if (bool == true){
+            return ResponseVO.newBuilder().code("200").message("成功").data(bool).build();
+        }else {
+            return ResponseVO.newBuilder().code("500").message("失败").data(null).build();
+        }
     }
 
     //购物车页面

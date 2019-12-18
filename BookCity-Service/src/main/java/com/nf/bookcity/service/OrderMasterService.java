@@ -6,6 +6,9 @@ import java.util.List;
 
 public interface OrderMasterService {
 
+    //分页获取所有订单
+    List<OrderMaster> getOrderMasterPageAll(int pageNum,int pageSize);
+
     //获取所有订单
     List<OrderMaster> getOrderMasterAll();
 
@@ -20,5 +23,8 @@ public interface OrderMasterService {
 
     //添加订单
     boolean insertOrder(OrderMaster orderMaster);
+
+    //根据订单id修改订单状态
+    boolean updateOrderStatusByOrderId(int orderId,int orderStatus);
 
 }

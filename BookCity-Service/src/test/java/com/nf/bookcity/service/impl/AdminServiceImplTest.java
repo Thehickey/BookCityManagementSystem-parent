@@ -27,6 +27,12 @@ public class AdminServiceImplTest {
     }
 
     @Test
+    public void loginVerification() {
+        Admin admin = new Admin("admin1","123");
+        System.out.println(adminService.loginVerification(admin));
+    }
+
+    @Test
     public void getAdminAll() {
         List<Admin> admins = adminService.getAdminAll();
         for (Admin admin : admins) {

@@ -460,7 +460,8 @@
                                                                 </li>
                                                                 <li class="td td-change">
                                                                     <div class="am-btn am-btn-danger anniu">
-                                                                        确认收货</div>
+                                                                        <a data-orderId="${order.orderId}" class="takegoods" href="javascript:;">确认收货</a>
+                                                                    </div>
                                                                 </li>
                                                             </div>
                                                         </div>
@@ -653,5 +654,29 @@
 </div>
 
 </body>
+<script type="text/javascript">
+    $(function () {
+        takegoods();
+    })
+
+    function takegoods() {
+        $(".takegoods").click(function () {
+            var orderId = $(this).attr("data-orderId");
+            $.ajax({
+                url:"/customer/takegoods?orderId=" + orderId,
+                type:"POST",
+                contentType:"application/json;charset=utf-8",
+                success:function (result) {
+                    if (result.data == true){
+                        alert("收货成功")
+                        window.location.href = "/customer/order";
+                    }else {
+                        alert("收货失败");
+                    }
+                }
+            })
+        })
+    }
+</script>
 
 </html>
