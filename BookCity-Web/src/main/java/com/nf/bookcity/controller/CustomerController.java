@@ -208,11 +208,11 @@ public class CustomerController{
 
     //付款成功
     @RequestMapping("/success")
-    public String success(@RequestParam(value = "total",required = false)String total,
-                          HttpServletRequest httpServletRequest){
-        String orderSn = OrderUtil.getOrderId();
-        httpServletRequest.setAttribute("total",Integer.parseInt(total));
+    public String success(HttpServletRequest httpServletRequest){
         HttpSession session = httpServletRequest.getSession();
+        String orderSn = (String) session.getAttribute("orderSn");
+        String total = (String) session.getAttribute("orderTotal");
+        httpServletRequest.setAttribute("total",Integer.parseInt(total));
         Customer customer = (Customer) session.getAttribute("Customer");
         OrderMaster insertorderMaster = new OrderMaster(orderSn,customer.getCustomerId(),customer.getCustomerUsername(),customer.getCustomerPhone(),customer.getCustomerAdress(),new BigDecimal(total),new BigDecimal(total),new Date(),1,new Date());
         boolean bool = orderMasterService.insertOrder(insertorderMaster);
@@ -226,7 +226,15 @@ public class CustomerController{
                 cartService.deleteCommodity(cart.getCartBookName());//从购物车中移除
             }
         }
+        session.removeAttribute("orderTotal");
+        session.removeAttribute("orderSn");
         return "customer/success";
+    }
+
+    //付款失败
+    @RequestMapping("/no")
+    public String no(){
+        return "customer/no";
     }
 
 }

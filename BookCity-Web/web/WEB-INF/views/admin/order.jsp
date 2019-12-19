@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/static/Background/css/font.css">
     <link rel="stylesheet" href="/static/Background/css/xadmin.css">
-    <script src="/static/Background/js/jquery.min.js"></script>
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/static/Background/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="/static/Background/js/xadmin.js"></script>
     <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->

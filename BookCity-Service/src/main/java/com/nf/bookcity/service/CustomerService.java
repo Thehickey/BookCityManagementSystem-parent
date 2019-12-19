@@ -25,6 +25,9 @@ public interface CustomerService {
     //修改用户信息
     boolean updateCustomer(Customer customer);
 
+    //修改密码
+    boolean updateCustomerPassword(int customerId,String password);
+
     //查询用户数量
     int getCustomerCount();
 

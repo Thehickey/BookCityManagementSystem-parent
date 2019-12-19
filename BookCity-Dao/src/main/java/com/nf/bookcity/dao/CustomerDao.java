@@ -25,6 +25,9 @@ public interface CustomerDao {
     //修改用户信息
     int updateCustomer(Customer customer);
 
+    //修改密码
+    int updateCustomerPassword(int customerId,String password);
+
     //查询用户数量
     int getCustomerCount();
 

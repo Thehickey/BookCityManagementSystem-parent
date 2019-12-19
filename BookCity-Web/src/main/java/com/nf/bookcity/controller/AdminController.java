@@ -6,6 +6,7 @@ import com.nf.bookcity.entity.Admin;
 import com.nf.bookcity.entity.Customer;
 import com.nf.bookcity.entity.OrderMaster;
 import com.nf.bookcity.service.AdminService;
+import com.nf.bookcity.service.CustomerService;
 import com.nf.bookcity.service.OrderMasterService;
 import com.nf.bookcity.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+
+    @Autowired
+    private CustomerService customerService;
 
     @Autowired
     private AdminService adminService;
@@ -66,6 +70,58 @@ public class AdminController {
     @ResponseBody
     public ResponseVO consignment(@RequestParam(required = false,value = "orderId")String orderId){
         boolean bool = orderMasterService.updateOrderStatusByOrderId(Integer.parseInt(orderId),2);
+        if (bool == true){
+            return ResponseVO.newBuilder().code("200").message("成功").data(bool).build();
+        }else {
+            return ResponseVO.newBuilder().code("500").message("失败").data(null).build();
+        }
+    }
+
+    //会员管理
+    @RequestMapping("/customerManagement")
+    public String customerManagement(){
+        return "admin/customerManagement";
+    }
+
+
+    //获取所有用户
+    @GetMapping("/customerList")
+    @ResponseBody
+    public ResponseVO customerList(@RequestParam(value = "pageNum",required = false,defaultValue = "1")int pageNum,
+                                   @RequestParam(value = "pageSize",required = false,defaultValue = "3")int pageSize){
+        List<Customer> customers = customerService.getCustomerPageAll(pageNum,pageSize);
+        PageInfo<Customer> pageInfo = new PageInfo(customers,3);
+        if (customers != null){
+            return ResponseVO.newBuilder().code("200").message("成功").data(pageInfo).build();
+        }else {
+            return ResponseVO.newBuilder().code("500").message("失败").data(null).build();
+        }
+    }
+
+    //修改密码
+    @GetMapping("/updateCustomerPassword")
+    public String updateCustomerPassword(@RequestParam(value = "customerId",required = false)int customerId,
+                                         Model model){
+        Customer customer = customerService.getCustomerById(customerId);
+        model.addAttribute("customer",customer);
+        return "admin/updateCustomerPassword";
+    }
+
+    @PostMapping("/updateCustomerPassword")
+    @ResponseBody
+    public ResponseVO updateCustomerPassword(@RequestBody Customer customer){
+        boolean bool = customerService.updateCustomerPassword(customer.getCustomerId(),customer.getCustomerPassword());
+        if (bool == true){
+            return ResponseVO.newBuilder().code("200").message("成功").data(bool).build();
+        }else {
+            return ResponseVO.newBuilder().code("500").message("失败").data(null).build();
+        }
+    }
+
+    @PostMapping("/deleteCustomer")
+    @ResponseBody
+    public ResponseVO updateCustomerPassword(@RequestParam(value = "customerId",required = false) String customerId){
+        boolean bool = customerService.deleteCustomerById(Integer.parseInt(customerId));
         if (bool == true){
             return ResponseVO.newBuilder().code("200").message("成功").data(bool).build();
         }else {

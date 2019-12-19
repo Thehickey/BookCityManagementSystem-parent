@@ -76,6 +76,12 @@ public class CustomerServiceImplTest {
     }
 
     @Test
+    public void updateCustomerPassword() {
+        customerService.updateCustomerPassword(4,"555");
+    }
+
+
+    @Test
     public void getCustomerCount() {
         System.out.println(customerService.getCustomerCount());
     }

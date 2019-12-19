@@ -148,7 +148,7 @@
 
                 <div id="holyshit269" class="submitOrder">
                     <div class="go-btn-wrap">
-                        <a id="J_Go" href="/customer/success?total=${total}" class="btn-go" tabindex="0" title="点击此按钮，提交订单">提交订单</a>
+                        <a id="J_Go" href="/alipay?total=${total}" class="btn-go" tabindex="0" title="点击此按钮，提交订单">提交订单</a>
                     </div>
                 </div>
                 <div id="holyshit2691" class="submitOrder">

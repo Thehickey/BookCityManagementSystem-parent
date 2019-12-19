@@ -45,6 +45,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public boolean updateCustomerPassword(int customerId, String password) {
+        return customerDao.updateCustomerPassword(customerId, password) > 0 ? true : false;
+    }
+
+    @Override
     public int getCustomerCount() {
         return customerDao.getCustomerCount();
     }

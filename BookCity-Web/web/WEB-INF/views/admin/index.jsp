@@ -170,7 +170,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="/static/Background/html/member-list.html">
+                        <a _href="/admin/customerManagement">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>会员列表</cite>
 

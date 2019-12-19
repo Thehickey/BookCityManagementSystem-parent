@@ -107,6 +107,12 @@
         where customer_id = #{customerId}
     </update>
 
+    <update id="updateCustomerPassword">
+        update customer_info
+        set customer_password = #{param2}
+        where customer_id = ${param1}
+    </update>
+
     <select id="getCustomerCount" resultType="int">
         select count(*) from customer_info
     </select>
