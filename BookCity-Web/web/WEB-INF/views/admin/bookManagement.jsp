@@ -1,13 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: 清淡欢颜
-  Date: 2019/12/19
-  Time: 10:02
+  Date: 2019/12/20
+  Time: 8:32
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>欢迎页面-L-admin1.0</title>
@@ -43,7 +42,7 @@
         <form class="layui-form layui-col-md12 x-so">
             <input class="layui-input" placeholder="开始日" name="start" id="start">
             <input class="layui-input" placeholder="截止日" name="end" id="end">
-            <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            <input type="text" name="bookname"  placeholder="请输入书名" autocomplete="off" class="layui-input">
             <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
         </form>
     </div>
@@ -62,7 +61,7 @@
 
     <script type="text/javascript">
         $(function () {
-            customerList_load();
+            bookList_load();
             page_load();
         })
 
@@ -70,7 +69,7 @@
         function page_load() {
             var resultVal = "";
             $.ajax({
-                url:"/admin/customerList",
+                url:"/admin/bookList",
                 type:"GET",
                 contentType:"application/json;charset=utf-8",
                 success:function (result) {
@@ -82,18 +81,18 @@
                     resultVal += "<a class=\"next\" href=\"\">&gt;&gt;</a>";
                     resultVal += "</div>";
                     $(".page").empty().append(resultVal);
-                    loadcustomerListBypageNum();
+                    loadBookListBypageNum();
                 }
             })
         }
 
-        //点击页码查询用户
-        function loadcustomerListBypageNum() {
+        //点击页码查询图书
+        function loadBookListBypageNum() {
             $(".num").click(function () {
                 var num = $(this).attr("data-num");
                 var resultVal = "";
                 $.ajax({
-                    url:"/admin/customerList?pageNum=" + num,
+                    url:"/admin/bookList?pageNum=" + num,
                     type:"GET",
                     contentType:"application/json;charset=utf-8",
                     success:function (result) {
@@ -102,13 +101,13 @@
                         resultVal += "<th>";
                         resultVal += "<div class=\"layui-unselect header layui-form-checkbox\" lay-skin=\"primary\"><i class=\"layui-icon\">&#xe605;</i></div>";
                         resultVal += "</th>";
-                        resultVal += "<th>ID</th>";
-                        resultVal += "<th>用户名</th>";
-                        resultVal += "<th>性别</th>";
-                        resultVal += "<th>手机</th>";
-                        resultVal += "<th>邮箱</th>";
-                        resultVal += "<th>地址</th>";
-                        resultVal += "<th>身份证号</th>";
+                        resultVal += "<th>书名</th>";
+                        resultVal += "<th>类别</th>";
+                        resultVal += "<th>描述</th>";
+                        resultVal += "<th>作者</th>";
+                        resultVal += "<th>出版社</th>";
+                        resultVal += "<th>上架日期</th>";
+                        resultVal += "<th>价格</th>";
                         resultVal += "<th>操作</th></tr>";
                         resultVal += "</thead>";
                         $.each(result.data.list,function (index,element) {
@@ -117,15 +116,15 @@
                             resultVal += "<td>";
                             resultVal += "<div class=\"layui-unselect layui-form-checkbox\" lay-skin=\"primary\" data-id='2'><i class=\"layui-icon\">&#xe605;</i></div>";
                             resultVal += "</td>";
-                            resultVal += "<td>"+element.customerId+"</td>";
-                            resultVal += "<td>"+element.customerUsername+"</td>";
-                            resultVal += "<td>"+element.customerGender+"</td>";
-                            resultVal += "<td>"+element.customerPhone+"</td>";
-                            resultVal += "<td>"+element.customerEmail+"</td>";
-                            resultVal += "<td>"+element.customerAdress+"</td>";
-                            resultVal += "<td>"+element.customerIdcard+"</td>";
+                            resultVal += "<td>"+element.bookName+"</td>";
+                            resultVal += "<td>"+element.bookCategoryName+"</td>";
+                            resultVal += "<td>"+element.bookDescript+"</td>";
+                            resultVal += "<td>"+element.bookAuthor+"</td>";
+                            resultVal += "<td>"+element.bookPress+"</td>";
+                            resultVal += "<td>"+element.bookDate+"</td>";
+                            resultVal += "<td>"+element.bookPrice+"</td>";
                             resultVal += "<td class=\"td-manage\">";
-                            resultVal += "<a onclick=\"x_admin_show('修改密码','/admin/updateCustomerPassword?customerId="+element.customerId+"',600,400)\" title=\"修改密码\" href=\"javascript:;\">";
+                            resultVal += "<a onclick=\"x_admin_show('修改图书信息','/admin/updateBook?bookId="+element.bookId+"',600,400)\" title=\"修改图书信息\" href=\"javascript:;\">";
                             resultVal += "<i class=\"layui-icon\">&#xe631;</i>";
                             resultVal += "</a>";
                             resultVal += "<a title=\"删除\" onclick=\"member_del(this,"+element.customerId+")\" href=\"javascript:;\">";
@@ -142,10 +141,10 @@
         }
 
         //加载所有用户
-        function customerList_load() {
+        function bookList_load() {
             var resultVal = "";
             $.ajax({
-                url:"/admin/customerList",
+                url:"/admin/bookList",
                 type:"GET",
                 contentType:"application/json;charset=utf-8",
                 success:function (result) {
@@ -154,13 +153,13 @@
                     resultVal += "<th>";
                     resultVal += "<div class=\"layui-unselect header layui-form-checkbox\" lay-skin=\"primary\"><i class=\"layui-icon\">&#xe605;</i></div>";
                     resultVal += "</th>";
-                    resultVal += "<th>ID</th>";
-                    resultVal += "<th>用户名</th>";
-                    resultVal += "<th>性别</th>";
-                    resultVal += "<th>手机</th>";
-                    resultVal += "<th>邮箱</th>";
-                    resultVal += "<th>地址</th>";
-                    resultVal += "<th>身份证号</th>";
+                    resultVal += "<th>书名</th>";
+                    resultVal += "<th>类别</th>";
+                    resultVal += "<th>描述</th>";
+                    resultVal += "<th>作者</th>";
+                    resultVal += "<th>出版社</th>";
+                    resultVal += "<th>上架日期</th>";
+                    resultVal += "<th>价格</th>";
                     resultVal += "<th>操作</th></tr>";
                     resultVal += "</thead>";
                     $.each(result.data.list,function (index,element) {
@@ -169,15 +168,15 @@
                         resultVal += "<td>";
                         resultVal += "<div class=\"layui-unselect layui-form-checkbox\" lay-skin=\"primary\" data-id='2'><i class=\"layui-icon\">&#xe605;</i></div>";
                         resultVal += "</td>";
-                        resultVal += "<td>"+element.customerId+"</td>";
-                        resultVal += "<td>"+element.customerUsername+"</td>";
-                        resultVal += "<td>"+element.customerGender+"</td>";
-                        resultVal += "<td>"+element.customerPhone+"</td>";
-                        resultVal += "<td>"+element.customerEmail+"</td>";
-                        resultVal += "<td>"+element.customerAdress+"</td>";
-                        resultVal += "<td>"+element.customerIdcard+"</td>";
+                        resultVal += "<td>"+element.bookName+"</td>";
+                        resultVal += "<td>"+element.bookCategoryName+"</td>";
+                        resultVal += "<td>"+element.bookDescript+"</td>";
+                        resultVal += "<td>"+element.bookAuthor+"</td>";
+                        resultVal += "<td>"+element.bookPress+"</td>";
+                        resultVal += "<td>"+element.bookDate+"</td>";
+                        resultVal += "<td>"+element.bookPrice+"</td>";
                         resultVal += "<td class=\"td-manage\">";
-                        resultVal += "<a onclick=\"x_admin_show('修改密码','/admin/updateCustomerPassword?customerId="+element.customerId+"',600,400)\" title=\"修改密码\" href=\"javascript:;\">";
+                        resultVal += "<a onclick=\"x_admin_show('修改图书信息','/admin/updateBook?bookId="+element.bookId+"',600,400)\" title=\"修改图书信息\" href=\"javascript:;\">";
                         resultVal += "<i class=\"layui-icon\">&#xe631;</i>";
                         resultVal += "</a>";
                         resultVal += "<a title=\"删除\" onclick=\"member_del(this,"+element.customerId+")\" href=\"javascript:;\">";
@@ -267,3 +266,4 @@
 </body>
 
 </html>
+

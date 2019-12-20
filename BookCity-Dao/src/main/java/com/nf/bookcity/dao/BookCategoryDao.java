@@ -6,19 +6,19 @@ import java.util.List;
 
 public interface BookCategoryDao {
 
-    //查询所有书籍
+    //查询所有类别
     List<BookCategory> getBookCategoryAll();
 
-    //根据ID查询书籍
+    //根据ID查询图书类别
     BookCategory getBookCategoryById(int categoryId);
 
-    //添加书籍
+    //添加类别
     int insertBookCategory(BookCategory bookCategory);
 
-    //根据ID删除书籍
+    //根据ID删除类别
     int deleteBookCategoryById(int categoryId);
 
-    //修改书籍信息
+    //修改类别信息
     int updateBookCategory(BookCategory bookCategory);
 
 }

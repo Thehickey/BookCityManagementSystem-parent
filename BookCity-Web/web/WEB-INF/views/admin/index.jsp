@@ -207,7 +207,21 @@
 
                         </ul>
                     </li>
-
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6b8;</i>
+                    <cite>图书管理</cite>
+                    <i class="iconfont nav_right">&#xe6a7;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="/admin/bookManagement">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>图书列表</cite>
+                        </a>
+                    </li >
                 </ul>
             </li>
             <li>

@@ -14,19 +14,22 @@
         <result property="bookPicUrl" column="book_pic_url"/>
         <result property="bookDate" column="book_date"/>
         <result property="bookPrice" column="book_price"/>
+        <result property="bookCategoryName" column="category_name"/>
     </resultMap>
 
     <select id="getBookPageAll" resultMap="getBookMap">
         select  book_id,
                 book_name,
                 book_category_id,
+                category_name,
                 book_descript,
                 book_author,
                 book_press,
                 book_pic_url,
                 book_date,
                 book_price
-        from book_info
+        from book_info bi
+        inner join book_category bc on bi.book_category_id = bc.category_id
         order by book_id
     </select>
 

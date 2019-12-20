@@ -2,19 +2,19 @@ package com.nf.bookcity.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
-import com.nf.bookcity.entity.Admin;
-import com.nf.bookcity.entity.Customer;
-import com.nf.bookcity.entity.OrderMaster;
-import com.nf.bookcity.service.AdminService;
-import com.nf.bookcity.service.CustomerService;
-import com.nf.bookcity.service.OrderMasterService;
+import com.nf.bookcity.entity.*;
+import com.nf.bookcity.service.*;
 import com.nf.bookcity.vo.ResponseVO;
+import com.nf.bookcity.vo.UpdateBookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -26,6 +26,12 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private BookService bookService;
+
+    @Autowired
+    private BookCategoryService bookCategoryService;
 
     @Autowired
     private OrderMasterService orderMasterService;
@@ -107,6 +113,7 @@ public class AdminController {
         return "admin/updateCustomerPassword";
     }
 
+    //修改用户密码
     @PostMapping("/updateCustomerPassword")
     @ResponseBody
     public ResponseVO updateCustomerPassword(@RequestBody Customer customer){
@@ -118,10 +125,72 @@ public class AdminController {
         }
     }
 
+    //删除用户
     @PostMapping("/deleteCustomer")
     @ResponseBody
     public ResponseVO updateCustomerPassword(@RequestParam(value = "customerId",required = false) String customerId){
         boolean bool = customerService.deleteCustomerById(Integer.parseInt(customerId));
+        if (bool == true){
+            return ResponseVO.newBuilder().code("200").message("成功").data(bool).build();
+        }else {
+            return ResponseVO.newBuilder().code("500").message("失败").data(null).build();
+        }
+    }
+
+    //图书管理页面
+    @GetMapping("/bookManagement")
+    public String bookManagement(){
+        return "admin/bookManagement";
+    }
+
+    //获取所有图书
+    @GetMapping("/bookList")
+    @ResponseBody
+    public ResponseVO bookList(@RequestParam(value = "pageNum",required = false,defaultValue = "1")int pageNum,
+                               @RequestParam(value = "pageSize",required = false,defaultValue = "5")int pageSize){
+        List<Book> books = bookService.getBookPageAll(pageNum,pageSize);
+        PageInfo<Book> pageInfo = new PageInfo(books,3);
+        if (books != null){
+            return ResponseVO.newBuilder().code("200").message("成功").data(pageInfo).build();
+        }else {
+            return ResponseVO.newBuilder().code("500").message("失败").data(null).build();
+        }
+    }
+
+    //获取所有图书类别
+    @GetMapping("/bookCategoryList")
+    @ResponseBody
+    public ResponseVO bookCategoryList(){
+        List<BookCategory> categories = bookCategoryService.getBookCategoryAll();
+        if (categories != null){
+            return ResponseVO.newBuilder().code("200").message("成功").data(categories).build();
+        }else {
+            return ResponseVO.newBuilder().code("500").message("失败").data(null).build();
+        }
+    }
+
+    //获取修改页面
+    @GetMapping("/updateBook")
+    public String updateBook(@RequestParam(value = "bookId",required = false)int bookId,Model model){
+        Book book = bookService.getBookById(bookId);
+        model.addAttribute("book",book);
+        return "admin/updateBook";
+    }
+
+    //修改图书信息
+    @PostMapping("/updateBook")
+    @ResponseBody
+    public ResponseVO updateBook(@RequestBody UpdateBookVO updateBookVO) throws Exception{
+        int bookId = updateBookVO.getBookId();
+        String bookName = updateBookVO.getBookName();
+        int bookCategoryId = updateBookVO.getBookCategoryId();
+        String bookDescript = updateBookVO.getBookDescript();
+        String bookAuthor = updateBookVO.getBookAuthor();
+        String bookPress = updateBookVO.getBookPress();
+        Date bookDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(updateBookVO.getBookDate());
+        BigDecimal bookPrice = new BigDecimal(updateBookVO.getBookPrice());
+        Book book = new Book(bookId,bookName,bookCategoryId,bookDescript,bookAuthor,bookPress,bookDate,bookPrice);
+        boolean bool = bookService.updateBook(book);
         if (bool == true){
             return ResponseVO.newBuilder().code("200").message("成功").data(bool).build();
         }else {
