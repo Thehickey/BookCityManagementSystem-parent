@@ -7,9 +7,6 @@ import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 
 import com.nf.bookcity.entity.Cart;
-import com.nf.bookcity.entity.Customer;
-import com.nf.bookcity.entity.OrderDetail;
-import com.nf.bookcity.entity.OrderMaster;
 import com.nf.bookcity.util.OrderUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.*;
 
 @Controller

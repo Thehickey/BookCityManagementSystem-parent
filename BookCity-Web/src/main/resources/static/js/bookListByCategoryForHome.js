@@ -97,14 +97,14 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/2.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 1){
                     resultVal += "<div class=\"am-u-sm-7 am-u-md-4 text-two\">";
@@ -113,14 +113,14 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/1.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 2){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three big\">";
@@ -129,14 +129,14 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/5.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 3){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three sug\">";
@@ -145,14 +145,14 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/3.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 4){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three \">";
@@ -161,14 +161,14 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/4.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\"/"+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 5){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three last big \">";
@@ -177,14 +177,14 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/5.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }
             })
@@ -228,14 +228,14 @@ function bookList_load(categoryId) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/2.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 1){
                     resultVal += "<div class=\"am-u-sm-7 am-u-md-4 text-two\">";
@@ -244,14 +244,14 @@ function bookList_load(categoryId) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/1.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 2){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three big\">";
@@ -260,14 +260,14 @@ function bookList_load(categoryId) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/5.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 3){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three sug\">";
@@ -276,14 +276,14 @@ function bookList_load(categoryId) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/3.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 4){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three \">";
@@ -292,14 +292,14 @@ function bookList_load(categoryId) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/4.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 5){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three last big \">";
@@ -308,14 +308,14 @@ function bookList_load(categoryId) {
                     resultVal += element.bookName;
                     resultVal += "</div>";
                     resultVal += "<div class=\"sub-title \">";
-                    resultVal += element.bookPrice;
+                    resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
                     resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/static/images/5.jpg\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }
             })
