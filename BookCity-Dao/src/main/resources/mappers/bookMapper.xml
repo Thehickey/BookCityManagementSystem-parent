@@ -120,6 +120,7 @@
             book_descript = #{bookDescript},
             book_author = #{bookAuthor},
             book_press = #{bookPress},
+            book_date = #{bookDate},
             book_pic_url = #{bookPicUrl},
             book_price = #{bookPrice}
         where book_id = #{bookId}

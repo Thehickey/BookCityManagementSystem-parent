@@ -30,6 +30,7 @@
 <div class="x-body">
     <form class="layui-form">
         <input type="hidden" name="bookId" value="${book.bookId}">
+        <input type="hidden" name="bookPicUrl" value="${book.bookPicUrl}">
         <div class="layui-form-item">
             <label for="B_bookName" class="layui-form-label">
                 书名

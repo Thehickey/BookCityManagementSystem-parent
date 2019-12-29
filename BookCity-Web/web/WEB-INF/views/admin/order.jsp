@@ -120,17 +120,20 @@
                 <td>${orderMaster.orderCreateTime}</td>
                 <td class="td-manage">
                     <c:if test="${orderMaster.orderStatus == 0}">
-                        <a class="consignment" data-orderId="${orderMaster.orderId}" title="发货" href="javascript:;">
+                        <a class="pay" data-orderId="${orderMaster.orderId}" title="发货" href="javascript:;">
                             <span>提醒支付</span>
                         </a>
                     </c:if>
                     <c:if test="${orderMaster.orderStatus == 1}">
-                        <a class="consignment" data-orderId="${orderMaster.orderId}" title="发货" href="javascript:;">
+                        <a title="查看图书"  onclick="x_admin_show('编辑','/admin/getDetail?orderId=${orderMaster.orderId}')" href="javascript:;">
                             <i class="layui-icon">&#xe63c;</i>
+                        </a>
+                        <a class="consignment" data-orderId="${orderMaster.orderId}" title="发货" href="javascript:;">
+                            <i class="layui-icon">&#xe601;</i>
                         </a>
                     </c:if>
                     <c:if test="${orderMaster.orderStatus == 2}">
-                        <a class="consignment" data-orderId="${orderMaster.orderId}" title="发货" href="javascript:;">
+                        <a class="takegoods" data-orderId="${orderMaster.orderId}" title="发货" href="javascript:;">
                             <span>提醒收货</span>
                         </a>
                     </c:if>

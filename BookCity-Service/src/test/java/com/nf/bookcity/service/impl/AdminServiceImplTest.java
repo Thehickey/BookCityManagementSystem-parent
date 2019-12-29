@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -66,5 +69,15 @@ public class AdminServiceImplTest {
     @Test
     public void getAdminCount() {
         System.out.println(adminService.getAdminCount());
+    }
+
+    @Test
+    public void test(){
+        try {
+            Date bookDate = new SimpleDateFormat("yyyy-MM-dd").parse("2019-02-02");
+            System.out.println(bookDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }

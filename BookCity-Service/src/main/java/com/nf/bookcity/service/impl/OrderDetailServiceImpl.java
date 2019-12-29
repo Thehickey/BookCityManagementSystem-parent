@@ -2,12 +2,10 @@ package com.nf.bookcity.service.impl;
 
 import com.nf.bookcity.dao.OrderDetailDao;
 import com.nf.bookcity.entity.OrderDetail;
-import com.nf.bookcity.entity.OrderMaster;
 import com.nf.bookcity.service.OrderDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.soap.Detail;
 import java.util.List;
 
 @Service
@@ -18,7 +16,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
 
     @Override
-    public List<Detail> getOrderDetailByOrderId(int orderId) {
+    public List<OrderDetail> getOrderDetailByOrderId(int orderId) {
         return orderDetailDao.getOrderDetailByOrderId(orderId);
     }
 

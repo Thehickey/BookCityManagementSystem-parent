@@ -35,7 +35,7 @@
                         <li class="td td-item">
                             <div class="item-pic">
                                 <a href="#" class="J_MakePoint">
-                                    <img src="/static/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
+                                    <img src="${cart.cartBookPicUrl}" class="itempic J_ItemImg"></a>
                             </div>
                             <div class="item-info">
                                 <div class="item-basic-info">

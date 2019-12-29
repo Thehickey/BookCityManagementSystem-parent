@@ -1,11 +1,10 @@
 package com.nf.bookcity.controller;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.nf.bookcity.entity.*;
 import com.nf.bookcity.service.*;
 import com.nf.bookcity.vo.ResponseVO;
-import com.nf.bookcity.vo.UpdateBookVO;
+import com.nf.bookcity.vo.BookVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +31,9 @@ public class AdminController {
 
     @Autowired
     private BookCategoryService bookCategoryService;
+
+    @Autowired
+    private OrderDetailService orderDetailService;
 
     @Autowired
     private OrderMasterService orderMasterService;
@@ -69,6 +71,14 @@ public class AdminController {
         PageInfo<OrderMaster> pageInfo = new PageInfo<>(orderMasters,3);
         model.addAttribute("pageInfo",pageInfo);
         return "admin/order";
+    }
+
+    //查看订单详情
+    @RequestMapping("/getDetail")
+    public String getDeteil(Model model,@RequestParam(required = false,value = "orderId")int orderId){
+        List<OrderDetail> orderDetails = orderDetailService.getOrderDetailByOrderId(orderId);
+        model.addAttribute("orderDetails",orderDetails);
+        return "admin/detailList";
     }
 
     //发货
@@ -180,16 +190,17 @@ public class AdminController {
     //修改图书信息
     @PostMapping("/updateBook")
     @ResponseBody
-    public ResponseVO updateBook(@RequestBody UpdateBookVO updateBookVO) throws Exception{
-        int bookId = updateBookVO.getBookId();
-        String bookName = updateBookVO.getBookName();
-        int bookCategoryId = updateBookVO.getBookCategoryId();
-        String bookDescript = updateBookVO.getBookDescript();
-        String bookAuthor = updateBookVO.getBookAuthor();
-        String bookPress = updateBookVO.getBookPress();
-        Date bookDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(updateBookVO.getBookDate());
-        BigDecimal bookPrice = new BigDecimal(updateBookVO.getBookPrice());
-        Book book = new Book(bookId,bookName,bookCategoryId,bookDescript,bookAuthor,bookPress,bookDate,bookPrice);
+    public ResponseVO updateBook(@RequestBody BookVO bookVO) throws Exception{
+        int bookId = bookVO.getBookId();
+        String bookPicUrl = bookVO.getBookPicUrl();
+        String bookName = bookVO.getBookName();
+        int bookCategoryId = bookVO.getBookCategoryId();
+        String bookDescript = bookVO.getBookDescript();
+        String bookAuthor = bookVO.getBookAuthor();
+        String bookPress = bookVO.getBookPress();
+        Date bookDate = new SimpleDateFormat("yyyy-MM-dd").parse(bookVO.getBookDate());
+        BigDecimal bookPrice = new BigDecimal(bookVO.getBookPrice());
+        Book book = new Book(bookId,bookName,bookCategoryId,bookDescript,bookAuthor,bookPress,bookPicUrl,bookDate,bookPrice);
         boolean bool = bookService.updateBook(book);
         if (bool == true){
             return ResponseVO.newBuilder().code("200").message("成功").data(bool).build();

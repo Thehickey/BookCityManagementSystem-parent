@@ -8,6 +8,7 @@
         <id property="detailId" column="detail_id"/>
         <result property="detailOrderId" column="detail_order_id"/>
         <result property="detailBookName" column="detail_book_name"/>
+        <result property="detailBookPicUrl" column="detail_book_pic_url"/>
         <result property="detailBookCnt" column="detail_book_cnt"/>
         <result property="detailBookPrice" column="detail_book_price"/>
         <result property="detailBookTotail" column="detail_book_totail"/>
@@ -30,24 +31,24 @@
     </resultMap>
 
     <select id="getOrderMasterPageAll" resultMap="getOrderMasterMap">
-        select order_id, order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time, detail_id, detail_order_id, detail_book_name, detail_book_cnt, detail_book_price, detail_book_totail from order_master om
+        select order_id, order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time, detail_id, detail_order_id, detail_book_name,detail_book_pic_url, detail_book_cnt, detail_book_price, detail_book_totail from order_master om
         inner join order_detail od on om.order_id = od.detail_order_id
         order by om.order_id
     </select>
 
     <select id="getOrderMasterAll" resultMap="getOrderMasterMap">
-        select order_id, order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time, detail_id, detail_order_id, detail_book_name, detail_book_cnt, detail_book_price, detail_book_totail from order_master om
+        select order_id, order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time, detail_id, detail_order_id, detail_book_name,detail_book_pic_url, detail_book_cnt, detail_book_price, detail_book_totail from order_master om
         inner join order_detail od on om.order_id = od.detail_order_id
     </select>
 
     <select id="getOrderMasterByCustomerId" resultMap="getOrderMasterMap">
-        select order_id, order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time, detail_id, detail_order_id, detail_book_name, detail_book_cnt, detail_book_price, detail_book_totail from order_master om
+        select order_id, order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time, detail_id, detail_order_id, detail_book_name,detail_book_pic_url, detail_book_cnt, detail_book_price, detail_book_totail from order_master om
         inner join order_detail od on om.order_id = od.detail_order_id
         where om.order_customer_id = #{customerId}
     </select>
 
     <select id="getOrderMasterByOrderStatus" resultMap="getOrderMasterMap">
-        select order_id, order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time, detail_id, detail_order_id, detail_book_name, detail_book_cnt, detail_book_price, detail_book_totail from order_master om
+        select order_id, order_sn, order_customer_id, order_customer_name, order_customer_phone, order_customer_address, order_money, order_payment_money, order_create_time, order_status, order_modified_time, detail_id, detail_order_id, detail_book_name,detail_book_pic_url, detail_book_cnt, detail_book_price, detail_book_totail from order_master om
         inner join order_detail od on om.order_id = od.detail_order_id
         where om.order_status = #{orderStatus}
         order by om.order_sn

@@ -8,6 +8,7 @@
         <id property="cartId" column="cart_id"/>
         <result property="cartCustomerId" column="cart_customer_id"/>
         <result property="cartBookName" column="cart_book_name"/>
+        <result property="cartBookPicUrl" column="cart_book_pic_url"/>
         <result property="cartBookCnt" column="cart_book_cnt"/>
         <result property="cartBookPrice" column="cart_book_price"/>
         <result property="cartCreateTime" column="cart_create_time"/>
@@ -18,6 +19,7 @@
         select  cart_id,
                 cart_customer_id,
                 cart_book_name,
+                cart_book_pic_url,
                 cart_book_cnt,
                 cart_book_price,
                 cart_create_time,
@@ -30,6 +32,7 @@
         select  cart_id,
                 cart_customer_id,
                 cart_book_name,
+                cart_book_pic_url,
                 cart_book_cnt,
                 cart_book_price,
                 cart_create_time,
@@ -41,12 +44,14 @@
     <insert id="insertCommodity">
         insert into cart(   cart_customer_id,
                             cart_book_name,
+                            cart_book_pic_url,
                             cart_book_cnt,
                             cart_book_price,
                             cart_create_time,
                             cart_modified_time)
         values (#{cartCustomerId},
                 #{cartBookName},
+                #{cartBookPicUrl},
                 #{cartBookCnt},
                 #{cartBookPrice},
                 #{cartCreateTime},

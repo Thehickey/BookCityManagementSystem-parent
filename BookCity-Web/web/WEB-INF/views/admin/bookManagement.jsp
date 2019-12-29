@@ -101,6 +101,7 @@
                         resultVal += "<th>";
                         resultVal += "<div class=\"layui-unselect header layui-form-checkbox\" lay-skin=\"primary\"><i class=\"layui-icon\">&#xe605;</i></div>";
                         resultVal += "</th>";
+                        resultVal += "<th>图书封面</th>";
                         resultVal += "<th>书名</th>";
                         resultVal += "<th>类别</th>";
                         resultVal += "<th>描述</th>";
@@ -116,6 +117,7 @@
                             resultVal += "<td>";
                             resultVal += "<div class=\"layui-unselect layui-form-checkbox\" lay-skin=\"primary\" data-id='2'><i class=\"layui-icon\">&#xe605;</i></div>";
                             resultVal += "</td>";
+                            resultVal += "<td><img src=\""+element.bookPicUrl+"\"></td>";
                             resultVal += "<td>"+element.bookName+"</td>";
                             resultVal += "<td>"+element.bookCategoryName+"</td>";
                             resultVal += "<td>"+element.bookDescript+"</td>";
@@ -153,6 +155,7 @@
                     resultVal += "<th>";
                     resultVal += "<div class=\"layui-unselect header layui-form-checkbox\" lay-skin=\"primary\"><i class=\"layui-icon\">&#xe605;</i></div>";
                     resultVal += "</th>";
+                    resultVal += "<th>图书封面</th>";
                     resultVal += "<th>书名</th>";
                     resultVal += "<th>类别</th>";
                     resultVal += "<th>描述</th>";
@@ -168,6 +171,7 @@
                         resultVal += "<td>";
                         resultVal += "<div class=\"layui-unselect layui-form-checkbox\" lay-skin=\"primary\" data-id='2'><i class=\"layui-icon\">&#xe605;</i></div>";
                         resultVal += "</td>";
+                        resultVal += "<td><img src=\""+element.bookPicUrl+"\"></td>";
                         resultVal += "<td>"+element.bookName+"</td>";
                         resultVal += "<td>"+element.bookCategoryName+"</td>";
                         resultVal += "<td>"+element.bookDescript+"</td>";

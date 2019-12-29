@@ -123,10 +123,10 @@ public class CustomerController{
     //添加商品
     @PostMapping("/insertCommodity")
     @ResponseBody
-    public ResponseVO insertCommodity(String bookName, String bookPrice,
+    public ResponseVO insertCommodity(String bookName, String bookPrice,String bookPicUrl,
                                    HttpServletRequest httpServletRequest){
         Customer customer = (Customer) httpServletRequest.getSession().getAttribute("Customer");
-        Cart cart = new Cart(customer.getCustomerId(), bookName, 1, new BigDecimal(bookPrice), new Date(), new Date());
+        Cart cart = new Cart(customer.getCustomerId(), bookName,bookPicUrl, 1, new BigDecimal(bookPrice), new Date(), new Date());
         if (cart != null){
             cartService.insertCommodity(cart);
             return ResponseVO.newBuilder().code("200").message("添加成功").data(cart).build();
@@ -221,7 +221,7 @@ public class CustomerController{
             List<Cart> carts = (List<Cart>) session.getAttribute("confirmCart");
             for (Cart cart : carts) {
                 double detailTotail = cart.getCartBookCnt()*Double.valueOf((cart.getCartBookPrice()).toString());
-                OrderDetail orderDetail = new OrderDetail(orderMaster.getOrderId(),cart.getCartBookName(),cart.getCartBookCnt(),cart.getCartBookPrice(),new BigDecimal(detailTotail));
+                OrderDetail orderDetail = new OrderDetail(orderMaster.getOrderId(),cart.getCartBookName(),cart.getCartBookPicUrl(),cart.getCartBookCnt(),cart.getCartBookPrice(),new BigDecimal(detailTotail));
                 orderDetailService.insertOrderDetail(orderDetail);//生成订单
                 cartService.deleteCommodity(cart.getCartBookName());//从购物车中移除
             }

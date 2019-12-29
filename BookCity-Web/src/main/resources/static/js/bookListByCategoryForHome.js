@@ -100,7 +100,7 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -116,7 +116,7 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -132,7 +132,7 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -148,7 +148,7 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -164,11 +164,11 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
-                    resultVal += "<a href=\"# \"><img src=\"/"+element.bookPicUrl+"\" /></a>";
+                    resultVal += "<a href=\"# \"><img src=\""+element.bookPicUrl+"\" /></a>";
                     resultVal += "</div>";
                 }else if (index == 5){
                     resultVal += "<div class=\"am-u-sm-3 am-u-md-2 text-three last big \">";
@@ -180,7 +180,7 @@ function navigatepageNums_load(categoryId,categoryName,pageNum) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -231,7 +231,7 @@ function bookList_load(categoryId) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -247,7 +247,7 @@ function bookList_load(categoryId) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -263,7 +263,7 @@ function bookList_load(categoryId) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -279,7 +279,7 @@ function bookList_load(categoryId) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -295,7 +295,7 @@ function bookList_load(categoryId) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -311,7 +311,7 @@ function bookList_load(categoryId) {
                     resultVal += "￥" + element.bookPrice;
                     resultVal += "</div>";
                     resultVal += "<i class=\"am-icon-shopping-basket am-icon-md  seprate\">";
-                    resultVal += "<span data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
+                    resultVal += "<span data-bookPicUrl=\""+element.bookPicUrl+"\" data-bookPrice=\""+element.bookPrice+"\" data-bookName=\""+element.bookName+"\">";
                     resultVal += "</span>";
                     resultVal += "</i>";
                     resultVal += "</div>";
@@ -329,8 +329,9 @@ function win() {
     $(".seprate").click(function () {
         var bookPrice = $(this).find("span").attr("data-bookPrice");
         var bookName = $(this).find("span").attr("data-bookName");
+        var bookPicUrl = $(this).find("span").attr("data-bookPicUrl");
         $.ajax({
-            url:"/customer/insertCommodity?bookName=" + bookName +"&bookPrice=" + bookPrice,
+            url:"/customer/insertCommodity?bookName=" + bookName +"&bookPrice=" + bookPrice +"&bookPicUrl=" + bookPicUrl,
             type:"POST",
             contentType:"application/json;charset=utf-8",
             success:function (result) {

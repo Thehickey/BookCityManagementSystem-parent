@@ -8,6 +8,7 @@
         <id property="detailId" column="detail_id"/>
         <result property="detailOrderId" column="detail_order_id"/>
         <result property="detailBookName" column="detail_book_name"/>
+        <result property="detailBookPicUrl" column="detail_book_pic_url"/>
         <result property="detailBookCnt" column="detail_book_cnt"/>
         <result property="detailBookPrice" column="detail_book_price"/>
         <result property="detailBookTotail" column="detail_book_totail"/>
@@ -17,6 +18,7 @@
         select  detail_id,
                 detail_order_id,
                 detail_book_name,
+                detail_book_pic_url,
                 detail_book_cnt,
                 detail_book_price,
                 detail_book_totail
@@ -27,11 +29,13 @@
     <insert id="insertOrderDetail">
         insert into order_detail(   detail_order_id,
                                     detail_book_name,
+                                    detail_book_pic_url,
                                     detail_book_cnt,
                                     detail_book_price,
                                     detail_book_totail)
         values (#{detailOrderId},
                 #{detailBookName},
+                #{detailBookPicUrl},
                 #{detailBookCnt},
                 #{detailBookPrice},
                 #{detailBookTotail})
