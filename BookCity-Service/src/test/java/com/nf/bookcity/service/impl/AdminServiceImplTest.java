@@ -67,6 +67,12 @@ public class AdminServiceImplTest {
     }
 
     @Test
+    public void updateAdmin() {
+        Admin admin = new Admin(2,"admin3","123","43273688739987");
+        adminService.updateAdmin(admin);
+    }
+
+    @Test
     public void getAdminCount() {
         System.out.println(adminService.getAdminCount());
     }
