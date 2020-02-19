@@ -21,7 +21,6 @@ import java.util.*;
 
 @Controller
 public class ApyController {
-
     @RequestMapping("/alipay")
     public void alipay(@RequestParam(value = "total",required = false)String total,
                        HttpServletResponse httpResponse,
