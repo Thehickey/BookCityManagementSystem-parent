@@ -75,7 +75,6 @@
         <div class="layui-form-item">
             <label for="B_bookDate" class="layui-form-label">
                 上架日期
-
             </label>
             <div class="layui-input-inline">
                 <input name="bookDate" type="date" id="B_bookDate" class="layui-input" value="${book.bookAuthor}">
