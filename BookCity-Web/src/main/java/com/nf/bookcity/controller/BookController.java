@@ -23,6 +23,7 @@ public class BookController {
     @Autowired
     private BookCategoryService bookCategoryService;
 
+    //根据类别加载图书
     @GetMapping("/bookListByCategory")
     public String bookListByCategory(@RequestParam(value = "categoryId",required = false)int categoryId,Model model){
         List<Book> books = bookService.getBookByCategoryId(categoryId);
@@ -30,6 +31,7 @@ public class BookController {
         return "other/bookListByCategory";
     }
 
+    //根据书名查询图书
     @GetMapping("/bookListByCategoryForHome")
     @ResponseBody
     public ResponseVO bookListByCategoryForHome(String categoryId,String pageNum){
@@ -38,6 +40,7 @@ public class BookController {
         return ResponseVO.newBuilder().code("200").message("查询成功").data(pageInfo).build();
     }
 
+    //查询图书类别
     @GetMapping("/bookCategory")
     @ResponseBody
     public ResponseVO bookCategory(){
@@ -45,6 +48,7 @@ public class BookController {
         return ResponseVO.newBuilder().code("200").message("图书类别查询成功").data(bookCategories).build();
     }
 
+    //查询图书类别
     @PostMapping("/bookCategory")
     @ResponseBody
     public ResponseVO bookCategory(@RequestBody BookCategory bookCategory){
